@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ComaMasters Ranking Portal</title>
+  <meta name="description" content="Static ranking portal from Tonamel tournament results.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/common.css">
+  <link rel="stylesheet" href="assets/css/top.css">
+</head>
+<body id="top" data-rt="./">
+  <div class="bg-layer" aria-hidden="true"></div>
+
+  <header class="hero">
+    <div class="wrap hero__inner">
+      <p class="hero__eyebrow">COMAMASTERS OFFICIAL</p>
+      <h1 id="siteTitle" class="hero__title">ComaMasters Ranking Portal</h1>
+      <p id="siteSubtitle" class="hero__subtitle">Tonamelで確定した大会結果から累計ランキングを自動生成</p>
+      <div class="hero__actions">
+        <a id="tonamelHubLink" class="btn btn--accent" href="https://tonamel.com/" target="_blank" rel="noopener noreferrer">Tonamelページへ</a>
+        <a class="btn btn--ghost" href="#leaderboard">ランキングを見る</a>
+      </div>
+      <p id="lastUpdated" class="hero__updated">Last update: -</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="quick-rules">
+      <article class="card">
+        <h2>How it works</h2>
+        <ol>
+          <li>大会運営はTonamelで進行</li>
+          <li>大会終了後に結果をこのサイトへ取り込み</li>
+          <li>取り込み済み全大会から累計ランキングを自動計算</li>
+        </ol>
+      </article>
+      <article class="card">
+        <h2>Input format</h2>
+        <p>結果入力欄に <code>順位,プレイヤー名,ポイント,チーム名(任意)</code> を1行ずつ貼り付けます。</p>
+        <pre class="format-sample">1,Alpha,120,Dragon Star
+2,Beta,90,Coma Team
+3,Gamma,75</pre>
+      </article>
+    </section>
+
+    <section id="leaderboard" class="section">
+      <div class="section__head">
+        <h2>Overall Ranking</h2>
+        <p id="leaderboardMeta" class="muted">0 players / 0 tournaments</p>
+      </div>
+      <div class="table-wrap">
+        <table class="leaderboard-table">
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Player</th>
+              <th>Team</th>
+              <th>Total Pts</th>
+              <th>Events</th>
+              <th>Avg Pts</th>
+              <th>Best Finish</th>
+              <th>Latest Pts</th>
+            </tr>
+          </thead>
+          <tbody id="leaderboardBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section__head">
+        <h2>Tournament Results</h2>
+      </div>
+      <div id="tournamentCards" class="tournament-cards"></div>
+    </section>
+
+    <section class="section admin">
+      <div class="section__head">
+        <h2>Admin</h2>
+        <p class="muted">公開ページと同じデータをここで更新します。</p>
+      </div>
+
+      <details class="admin-block" open>
+        <summary>Site settings</summary>
+        <form id="siteForm" class="form-grid">
+          <label>
+            Site title
+            <input name="title" type="text" required>
+          </label>
+          <label>
+            Subtitle
+            <input name="subtitle" type="text" required>
+          </label>
+          <label>
+            Tonamel URL
+            <input name="tonamelHubUrl" type="url" required>
+          </label>
+          <button class="btn btn--accent form-submit" type="submit">Save site settings</button>
+        </form>
+      </details>
+
+      <details class="admin-block" open>
+        <summary>Add tournament result</summary>
+        <form id="tournamentForm" class="form-grid">
+          <label>
+            Tournament name
+            <input name="name" type="text" required>
+          </label>
+          <label>
+            Date
+            <input name="date" type="date" required>
+          </label>
+          <label>
+            Venue
+            <input name="venue" type="text" required>
+          </label>
+          <label>
+            Tonamel event URL
+            <input name="sourceUrl" type="url" required>
+          </label>
+          <label class="full">
+            Results list
+            <textarea name="resultsText" rows="10" required placeholder="1,Alpha,120,Team A&#10;2,Beta,90,Team B&#10;3,Gamma,75"></textarea>
+          </label>
+          <button class="btn btn--accent form-submit" type="submit">Add tournament</button>
+        </form>
+      </details>
+
+      <details class="admin-block" open>
+        <summary>Registered tournaments</summary>
+        <div class="table-wrap table-wrap--small">
+          <table class="mini-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Tournament</th>
+                <th>Venue</th>
+                <th>Entries</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="adminTournamentsBody"></tbody>
+          </table>
+        </div>
+      </details>
+
+      <details class="admin-block">
+        <summary>Data operations</summary>
+        <div class="ops-row">
+          <button id="exportBtn" class="btn btn--ghost" type="button">Export JSON</button>
+          <label class="btn btn--ghost file-label">
+            Import JSON
+            <input id="importInput" type="file" accept="application/json">
+          </label>
+          <button id="resetBtn" class="btn btn--danger" type="button">Reset all data</button>
+        </div>
+      </details>
+    </section>
+  </main>
+
+  <script src="assets/js/incparts.js"></script>
+  <script src="assets/js/jquery.common.js"></script>
+  <script src="assets/js/jquery.top.js"></script>
+</body>
+</html>
