@@ -25,7 +25,9 @@ body {
   min-height: 100vh;
   color: var(--cm-text);
   font-family: "Zen Kaku Gothic New", sans-serif;
-  background: #fff;
+  background:
+    linear-gradient(180deg, rgba(248, 250, 255, 0.95), rgba(236, 241, 252, 0.95)),
+    url("../img/common/site-bg.webp") center top / cover fixed no-repeat;
 }
 
 a {
