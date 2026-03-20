@@ -128,10 +128,11 @@ a {
 }
 
 .gem--a { background-image: url("../img/common/gem-crest-red.webp"); }
-.gem--b { background-image: url("../img/common/gem-crest-blue.webp"); }
+.gem--b { background-image: url("../img/common/gem-crest-purple.webp"); }
 .gem--c { background-image: url("../img/common/gem-crest-green.webp"); }
-.gem--d { background-image: url("../img/common/gem-crest-purple.webp"); }
+.gem--d { background-image: url("../img/common/gem-crest-white.webp"); }
 .gem--e { background-image: url("../img/common/gem-crest-yellow.webp"); }
+.gem--f { background-image: url("../img/common/gem-crest-blue.webp"); }
 
 main {
   padding: 1rem;
