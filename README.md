@@ -2,6 +2,15 @@
 
 Static website for publishing cumulative rankings from Tonamel tournament results.
 
+## File structure (inspired by cho-kaguyahime style)
+
+- `index.html`
+- `assets/css/common.css` (global/base/common components)
+- `assets/css/top.css` (top page specific styles)
+- `assets/js/incparts.js` (global constants and include-like shared parts)
+- `assets/js/jquery.common.js` (shared logic/utilities)
+- `assets/js/jquery.top.js` (top page behavior/rendering)
+
 ## Quick publish steps (GitHub Pages)
 
 1. Create a new GitHub repository (example: `comamasters-ranking`).
