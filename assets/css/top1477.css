@@ -412,11 +412,9 @@ body.is-ready .ring-gem--6          { animation-delay: 2.6s; }
 }
 
 .rank-score {
-  font-family: "Cinzel", serif;
-  font-size: .88rem;
-  font-weight: 700;
-  color: var(--cm-gold);
-  letter-spacing: .04em;
+  font-size: .82rem;
+  color: var(--cm-muted);
+  letter-spacing: .02em;
   white-space: nowrap;
 }
 
