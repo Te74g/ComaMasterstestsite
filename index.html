@@ -3,16 +3,25 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ComaMasters | Crystal Arena</title>
-  <meta name="description" content="ComaMasters tournament official website.">
+  <title>ComaMasters | Battle Spirits 公式大会ポータル</title>
+  <meta name="description" content="バトルスピリッツ コミュニティ公式大会 ComaMasters の開催情報・ランキング・大会結果ポータル。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="icon" href="./favicon.ico">
-  <link rel="stylesheet" href="./assets/css/common.css">
-  <link rel="stylesheet" href="./assets/css/top1477.css">
+  <link rel="stylesheet" href="./assets/css/common.css?v=2">
+  <link rel="stylesheet" href="./assets/css/top1477.css?v=2">
 </head>
 <body id="top" data-page="top" data-rt="./">
+
+  <div class="site-loading" id="siteLoading" aria-hidden="true">
+    <div class="site-loading__inner">
+      <div class="site-loading__emblem"></div>
+      <div class="site-loading__ring"></div>
+      <p class="site-loading__label">ComaMasters</p>
+    </div>
+  </div>
+
   <div class="site-shell">
     <header class="site-header">
       <div class="site-header__inner">
@@ -37,18 +46,20 @@
     </header>
 
     <main>
+
+      <!-- ============ KV ============ -->
       <section class="top-kv">
-        <div class="top-kv__copy">
-          <p class="top-kv__eyebrow">OFFICIAL TOURNAMENT SITE</p>
-          <h1 class="top-kv__title">COMAMASTERS<br>CRYSTAL ARENA</h1>
-          <p class="top-kv__lead">カードゲーム大会の開催情報・ランキング・大会結果をまとめた公式ポータル。</p>
-          <div class="top-kv__actions">
-            <a class="button button--primary" href="./event/index.html">開催情報を見る</a>
-            <a class="button button--ghost" href="./ranking/index.html">ランキングへ</a>
+
+        <!-- アートワーク（差し替え可: assets/img/top/kv-art.webp） -->
+        <div class="top-kv__art" aria-hidden="true"></div>
+
+        <!-- ジェム + 魔法陣 -->
+        <div class="top-kv__deco" aria-hidden="true">
+          <div class="kv-circle">
+            <div class="kv-circle__r kv-circle__r--a"></div>
+            <div class="kv-circle__r kv-circle__r--b"></div>
+            <div class="kv-circle__r kv-circle__r--c"></div>
           </div>
-        </div>
-        <div class="top-kv__visual" aria-hidden="true">
-          <div class="top-kv__hero"></div>
           <div class="gem-ring">
             <span class="ring-gem ring-gem--1"></span>
             <span class="ring-gem ring-gem--2"></span>
@@ -58,39 +69,239 @@
             <span class="ring-gem ring-gem--6"></span>
           </div>
         </div>
+
+        <!-- コピー -->
+        <div class="top-kv__copy">
+          <p class="top-kv__eyebrow">BATTLE SPIRITS TOURNAMENT</p>
+          <h1 class="top-kv__title">COMA<br>MASTERS</h1>
+          <div class="top-kv__actions">
+            <a class="button button--primary" href="./event/index.html">開催情報を見る</a>
+            <a class="button button--ghost" href="./ranking/index.html">ランキングへ</a>
+          </div>
+        </div>
+
+        <!-- スクロール誘導 -->
+        <div class="top-kv__scroll" aria-hidden="true">
+          <span class="kv-scroll__bar"></span>
+          <span class="kv-scroll__label">SCROLL</span>
+        </div>
+
       </section>
 
-      <section class="top-lore">
-        <div class="top-lore__character" aria-hidden="true">
-          <div class="character-card"></div>
+      <!-- ============ RANKING ============ -->
+      <section class="top-ranking">
+        <div class="section-head js-fade">
+          <p class="section-en" aria-hidden="true">RANKING</p>
+          <h2 class="section-title">現在のランキング</h2>
+          <p class="section-sub">Season 2 — 集計中</p>
         </div>
-        <div class="top-lore__content">
-          <article class="lore-item">
-            <h2><span class="lore-gem lore-gem--red"></span>公式ランキング集計</h2>
-            <p>Tonamelで確定した大会結果のみを集計対象にし、手入力による加算は行いません。</p>
-          </article>
-          <article class="lore-item">
-            <h2><span class="lore-gem lore-gem--purple"></span>更新タイミング</h2>
-            <p>ランキングは原則として週1回更新し、大型大会後は臨時で反映します。</p>
-          </article>
-          <article class="lore-item">
-            <h2><span class="lore-gem lore-gem--green"></span>ポイント基準</h2>
-            <p>参加人数と最終順位を基準に勝ち点を反映し、同点時は入賞回数を参照します。</p>
-          </article>
-          <article class="lore-item">
-            <h2><span class="lore-gem lore-gem--white"></span>シーズン運用</h2>
-            <p>年間を複数シーズンに分けて集計し、各シーズンの最終順位を保存します。</p>
-          </article>
-          <article class="lore-item">
-            <h2><span class="lore-gem lore-gem--yellow"></span>大会結果アーカイブ</h2>
-            <p>大会ごとの結果ページを時系列で残し、過去の対戦結果を確認できるようにします。</p>
-          </article>
-          <article class="lore-item">
-            <h2><span class="lore-gem lore-gem--blue"></span>参加・公式リンク</h2>
-            <p>参加受付はTonamelで実施し、XやDiscordなど運営導線をリンク集にまとめます。</p>
-          </article>
+
+        <ol class="ranking-list">
+          <!-- 1位〜3位: 金・銀・銅 -->
+          <li class="ranking-item ranking-item--top js-fade">
+            <span class="rank-num rank-num--1">1</span>
+            <span class="rank-name">ランプレート</span>
+            <span class="rank-score">1,280 pt</span>
+            <span class="rank-wins">12勝</span>
+          </li>
+          <li class="ranking-item ranking-item--top js-fade">
+            <span class="rank-num rank-num--2">2</span>
+            <span class="rank-name">フェニックス</span>
+            <span class="rank-score">1,150 pt</span>
+            <span class="rank-wins">11勝</span>
+          </li>
+          <li class="ranking-item ranking-item--top js-fade">
+            <span class="rank-num rank-num--3">3</span>
+            <span class="rank-name">クリスタル</span>
+            <span class="rank-score">1,020 pt</span>
+            <span class="rank-wins">9勝</span>
+          </li>
+          <!-- 4位〜10位 -->
+          <li class="ranking-item js-fade">
+            <span class="rank-num">4</span>
+            <span class="rank-name">タイタン</span>
+            <span class="rank-score">980 pt</span>
+            <span class="rank-wins">9勝</span>
+          </li>
+          <li class="ranking-item js-fade">
+            <span class="rank-num">5</span>
+            <span class="rank-name">エンプレス</span>
+            <span class="rank-score">920 pt</span>
+            <span class="rank-wins">8勝</span>
+          </li>
+          <li class="ranking-item js-fade">
+            <span class="rank-num">6</span>
+            <span class="rank-name">ゼロゲート</span>
+            <span class="rank-score">870 pt</span>
+            <span class="rank-wins">8勝</span>
+          </li>
+          <li class="ranking-item js-fade">
+            <span class="rank-num">7</span>
+            <span class="rank-name">ライジング</span>
+            <span class="rank-score">820 pt</span>
+            <span class="rank-wins">7勝</span>
+          </li>
+          <li class="ranking-item js-fade">
+            <span class="rank-num">8</span>
+            <span class="rank-name">ネクサス</span>
+            <span class="rank-score">780 pt</span>
+            <span class="rank-wins">7勝</span>
+          </li>
+          <li class="ranking-item js-fade">
+            <span class="rank-num">9</span>
+            <span class="rank-name">サンダーボルト</span>
+            <span class="rank-score">730 pt</span>
+            <span class="rank-wins">6勝</span>
+          </li>
+          <li class="ranking-item js-fade">
+            <span class="rank-num">10</span>
+            <span class="rank-name">ブレイブ</span>
+            <span class="rank-score">690 pt</span>
+            <span class="rank-wins">6勝</span>
+          </li>
+        </ol>
+
+        <div class="section-more js-fade">
+          <a class="button button--ghost" href="./ranking/index.html">全ランキングを見る</a>
         </div>
       </section>
+
+      <!-- ============ NEWS ============ -->
+      <section class="top-news">
+        <div class="section-head js-fade">
+          <p class="section-en" aria-hidden="true">NEWS</p>
+          <h2 class="section-title">最新情報</h2>
+        </div>
+
+        <ul class="news-list">
+          <li class="news-item js-fade">
+            <time class="news-date" datetime="2026-03-15">2026.03.15</time>
+            <span class="news-tag news-tag--event">大会</span>
+            <span class="news-title">第5回 ComaMasters 開催決定</span>
+          </li>
+          <li class="news-item js-fade">
+            <time class="news-date" datetime="2026-03-01">2026.03.01</time>
+            <span class="news-tag news-tag--ranking">ランキング</span>
+            <span class="news-title">Season 2 ランキングを更新しました</span>
+          </li>
+          <li class="news-item js-fade">
+            <time class="news-date" datetime="2026-02-20">2026.02.20</time>
+            <span class="news-tag news-tag--info">お知らせ</span>
+            <span class="news-title">GF フェスティバルの詳細が決定</span>
+          </li>
+          <li class="news-item js-fade">
+            <time class="news-date" datetime="2026-02-10">2026.02.10</time>
+            <span class="news-tag news-tag--result">結果</span>
+            <span class="news-title">第4回 ComaMasters 大会結果を公開</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- ============ EVENT CTA ============ -->
+      <section class="top-event-cta">
+        <div class="event-cta__inner js-fade">
+          <div class="event-cta__gem-row" aria-hidden="true">
+            <span class="lore-gem lore-gem--red"></span>
+            <span class="lore-gem lore-gem--purple"></span>
+            <span class="lore-gem lore-gem--green"></span>
+            <span class="lore-gem lore-gem--white"></span>
+            <span class="lore-gem lore-gem--yellow"></span>
+            <span class="lore-gem lore-gem--blue"></span>
+          </div>
+          <p class="event-cta__label">NEXT EVENT</p>
+          <h2 class="event-cta__title">第6回 ComaMasters</h2>
+          <p class="event-cta__meta">2026.04.XX（日）｜会場調整中</p>
+          <a class="button button--primary" href="./event/index.html">開催情報を見る</a>
+        </div>
+      </section>
+
+      <!-- ============ MESSAGE + YOUTUBE ============ -->
+      <section class="top-message">
+        <div class="top-message__inner">
+
+          <div class="top-message__text js-fade">
+            <div class="section-head">
+              <p class="section-en" aria-hidden="true">MESSAGE</p>
+              <h2 class="section-title">主催者挨拶</h2>
+            </div>
+            <p class="message-body">
+              ComaMasters へようこそ。このサイトは、バトルスピリッツのコミュニティ大会シリーズ「ComaMasters」の公式ポータルです。ランキング・開催情報・大会結果をここで一括管理・公開しています。
+            </p>
+            <p class="message-body">
+              大会はTonamelを通じて参加受付を行っており、誰でも参加できます。上位を目指して競い合う緊張感と、同じゲームを愛するプレイヤーとの交流を楽しんでください。
+            </p>
+            <p class="message-sign">— コマ（主催）</p>
+          </div>
+
+          <div class="top-message__video js-fade">
+            <!-- YouTube動画ID を VIDEO_ID から差し替えてください -->
+            <div class="video-wrap">
+              <iframe
+                src="https://www.youtube.com/embed/VIDEO_ID"
+                title="ComaMasters YouTube"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============ TWITTER / X ============ -->
+      <!-- 手動更新: tweet-body と tweet-time を編集してください -->
+      <section class="top-twitter">
+        <div class="section-head js-fade">
+          <p class="section-en" aria-hidden="true">X / TWITTER</p>
+          <h2 class="section-title">最新ツイート</h2>
+        </div>
+
+        <div class="tweet-grid">
+
+          <article class="tweet-card js-fade">
+            <div class="tweet-card__head">
+              <div class="tweet-card__user">
+                <strong class="tweet-name">ComaMasters</strong>
+                <span class="tweet-handle">@ComaMastersinfo</span>
+              </div>
+              <svg class="tweet-x-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </div>
+            <p class="tweet-body">第5回 ComaMasters の開催が決定しました！詳細は大会情報ページをご確認ください。参加受付はTonamelにて。#ComaMasters #バトルスピリッツ</p>
+            <time class="tweet-time" datetime="2026-03-15">2026年3月15日</time>
+          </article>
+
+          <article class="tweet-card js-fade">
+            <div class="tweet-card__head">
+              <div class="tweet-card__user">
+                <strong class="tweet-name">ComaMasters</strong>
+                <span class="tweet-handle">@ComaMastersinfo</span>
+              </div>
+              <svg class="tweet-x-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </div>
+            <p class="tweet-body">Season 2 ランキングを更新しました。上位10名の顔ぶれが大きく変わっています。ぜひご確認を！#ComaMasters</p>
+            <time class="tweet-time" datetime="2026-03-01">2026年3月1日</time>
+          </article>
+
+          <article class="tweet-card js-fade">
+            <div class="tweet-card__head">
+              <div class="tweet-card__user">
+                <strong class="tweet-name">コマ</strong>
+                <span class="tweet-handle">@koma020116</span>
+              </div>
+              <svg class="tweet-x-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </div>
+            <p class="tweet-body">GF フェスティバルの詳細が決まりました。今シーズンの集大成となる大型大会です。楽しみにしていてください！#ComaMasters #バトルスピリッツ</p>
+            <time class="tweet-time" datetime="2026-02-20">2026年2月20日</time>
+          </article>
+
+        </div>
+
+        <div class="section-more js-fade">
+          <a class="button button--ghost" href="https://x.com/ComaMastersinfo" target="_blank" rel="noopener noreferrer">X でフォロー</a>
+        </div>
+      </section>
+
     </main>
 
     <footer class="site-footer">
@@ -104,8 +315,8 @@
     </footer>
   </div>
 
-  <script src="./assets/js/incparts.js"></script>
-  <script src="./assets/js/jquery.common.js"></script>
-  <script src="./assets/js/jquery.tope3ce.js"></script>
+  <script src="./assets/js/incparts.js?v=2"></script>
+  <script src="./assets/js/jquery.common.js?v=2"></script>
+  <script src="./assets/js/jquery.tope3ce.js?v=2"></script>
 </body>
 </html>
