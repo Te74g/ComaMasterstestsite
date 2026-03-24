@@ -433,6 +433,17 @@ body.is-ready .ring-gem--6          { animation-delay: 2.6s; }
   font-weight: 700;
 }
 
+.rank-rate {
+  font-size: .82rem;
+  font-weight: 700;
+  color: var(--cm-gold);
+  white-space: nowrap;
+  min-width: 48px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: .02em;
+}
+
 .rank-wins,
 .rank-pts {
   font-size: .78rem;
@@ -833,5 +844,10 @@ body.is-ready .ring-gem--6          { animation-delay: 2.6s; }
   .rank-wins,
   .rank-pts {
     display: none;
+  }
+
+  .rank-rate {
+    min-width: 40px;
+    font-size: .76rem;
   }
 }
