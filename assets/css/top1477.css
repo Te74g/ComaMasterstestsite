@@ -359,10 +359,11 @@ body.is-ready .ring-gem--6          { animation-delay: 2.6s; }
 }
 
 .ranking-item {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 1rem;
-  padding: .75rem 0;
+  padding: .75rem 0 .75rem 1rem;
   border-bottom: 1px solid var(--cm-line);
   font-size: .9rem;
   font-feature-settings: 'palt';
@@ -473,25 +474,30 @@ body.is-ready .ring-gem--6          { animation-delay: 2.6s; }
   70%       { color: #b890e8; }
 }
 
-/* B ── 左ボーダーアクセント（Gold 以上） */
-.rank-tier--gold,
-.rank-tier--diamond,
-.rank-tier--master,
-.rank-tier--apex {
-  border-left: 2px solid;
-  padding-left: .5rem;
+/* B ── 左ライン（Gold 以上）— ::before でフル高さ */
+.rank-tier--gold::before,
+.rank-tier--diamond::before,
+.rank-tier--master::before,
+.rank-tier--apex::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: -1px;
+  width: 2px;
+  pointer-events: none;
 }
-.rank-tier--gold    { border-left-color: rgba(200,168,74,.55); }
-.rank-tier--diamond { border-left-color: rgba(168,200,248,.65); }
-.rank-tier--master  { border-left-color: rgba(184,144,232,.7); }
-.rank-tier--apex    {
-  border-left-color: rgba(200,168,74,.8);
-  animation: rankApex_borderShift 7s cubic-bezier(.075,.82,.165,1) infinite;
+.rank-tier--gold::before    { background: rgba(200,168,74,.6); }
+.rank-tier--diamond::before { background: rgba(168,200,248,.7); }
+.rank-tier--master::before  { background: rgba(184,144,232,.75); }
+.rank-tier--apex::before    {
+  background: rgba(200,168,74,.85);
+  animation: rankApex_lineShift 7s cubic-bezier(.075,.82,.165,1) infinite;
 }
-@keyframes rankApex_borderShift {
-  0%, 100% { border-left-color: rgba(200,168,74,.8); }
-  40%       { border-left-color: rgba(168,200,248,.8); }
-  70%       { border-left-color: rgba(184,144,232,.8); }
+@keyframes rankApex_lineShift {
+  0%, 100% { background: rgba(200,168,74,.85); }
+  40%       { background: rgba(168,200,248,.85); }
+  70%       { background: rgba(184,144,232,.85); }
 }
 
 /* C ── 名前をシーン光が横切る（Diamond 以上） */
