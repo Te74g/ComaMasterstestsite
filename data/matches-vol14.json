@@ -1,0 +1,48 @@
+{
+  "_comment": "Vol.14【BO3】Swiss 6R — OMW%・順位から上位卓を逆算した近似値",
+  "season": "2026",
+  "events": [
+    {
+      "vol": 14,
+      "date": "2026-03-07",
+      "venue": "オンライン",
+      "matches": [
+        { "p1": "クロバル/TierOne",    "p2": "さうすかー",        "result": "win"  },
+        { "p1": "カズキ/フルアヘッド", "p2": "Tsubasa",           "result": "win"  },
+        { "p1": "ちょす",             "p2": "コウスケ",           "result": "win"  },
+        { "p1": "ヤット・パウル",      "p2": "ほんだ",            "result": "win"  },
+        { "p1": "新世界",             "p2": "リュウ",             "result": "win"  },
+
+        { "p1": "クロバル/TierOne",    "p2": "新世界",            "result": "win"  },
+        { "p1": "カズキ/フルアヘッド", "p2": "リュウ",            "result": "win"  },
+        { "p1": "ちょす",             "p2": "ヤット・パウル",     "result": "win"  },
+        { "p1": "コウスケ",           "p2": "さうすかー",         "result": "win"  },
+        { "p1": "ほんだ",             "p2": "Tsubasa",           "result": "win"  },
+
+        { "p1": "クロバル/TierOne",    "p2": "コウスケ",          "result": "win"  },
+        { "p1": "カズキ/フルアヘッド", "p2": "ほんだ",            "result": "win"  },
+        { "p1": "ちょす",             "p2": "リュウ",             "result": "win"  },
+        { "p1": "ヤット・パウル",      "p2": "さうすかー",        "result": "win"  },
+        { "p1": "新世界",             "p2": "Tsubasa",           "result": "win"  },
+
+        { "p1": "クロバル/TierOne",    "p2": "ちょす",            "result": "win"  },
+        { "p1": "カズキ/フルアヘッド", "p2": "ヤット・パウル",    "result": "win"  },
+        { "p1": "新世界",             "p2": "コウスケ",           "result": "win"  },
+        { "p1": "リュウ",             "p2": "さうすかー",         "result": "win"  },
+        { "p1": "ほんだ",             "p2": "Tsubasa",           "result": "draw" },
+
+        { "p1": "クロバル/TierOne",    "p2": "ヤット・パウル",    "result": "win"  },
+        { "p1": "カズキ/フルアヘッド", "p2": "ちょす",            "result": "win"  },
+        { "p1": "新世界",             "p2": "リュウ",             "result": "draw" },
+        { "p1": "コウスケ",           "p2": "ほんだ",             "result": "win"  },
+        { "p1": "さうすかー",         "p2": "Tsubasa",           "result": "win"  },
+
+        { "p1": "クロバル/TierOne",    "p2": "カズキ/フルアヘッド", "result": "win" },
+        { "p1": "ちょす",             "p2": "新世界",             "result": "win"  },
+        { "p1": "ヤット・パウル",      "p2": "リュウ",            "result": "win"  },
+        { "p1": "コウスケ",           "p2": "Tsubasa",           "result": "win"  },
+        { "p1": "さうすかー",         "p2": "ほんだ",             "result": "win"  }
+      ]
+    }
+  ]
+}
