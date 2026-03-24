@@ -1,0 +1,17 @@
+{
+  "_comment": "ComaMasters Elo レーティング 入力フォーマット",
+  "_note": "result は勝者側から見た値: 'win' | 'loss' | 'draw'",
+  "season": "2026",
+  "events": [
+    {
+      "vol": 1,
+      "date": "2026-04-20",
+      "venue": "カードラッシュ秋葉原",
+      "matches": [
+        { "p1": "クロバル", "p2": "カズキ", "result": "win" },
+        { "p1": "ちょす",   "p2": "リュウ",  "result": "draw" },
+        { "p1": "Tsubasa", "p2": "新世界",  "result": "loss" }
+      ]
+    }
+  ]
+}
