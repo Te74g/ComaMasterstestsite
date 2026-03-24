@@ -289,9 +289,9 @@ body.is-ready .ring-gem--6          { animation-delay: 2.6s; }
   margin: 0;
   font-family: "Cinzel", serif;
   font-weight: 900;
-  font-size: clamp(2.6rem, 7vw, 5rem);
+  font-size: clamp(3rem, 8vw, 6rem);
   letter-spacing: .06em;
-  color: rgba(255,255,255,.04);
+  color: rgba(255,255,255,.025);
   line-height: 1;
   pointer-events: none;
   user-select: none;
@@ -301,11 +301,11 @@ body.is-ready .ring-gem--6          { animation-delay: 2.6s; }
   position: relative;
   margin: 0;
   font-family: "Cinzel", serif;
-  font-size: clamp(1rem, 2vw, 1.3rem);
+  font-size: clamp(1.1rem, 2.2vw, 1.5rem);
   font-weight: 700;
-  color: var(--cm-text);
-  letter-spacing: .08em;
-  padding-bottom: .9rem;
+  color: #fff;
+  letter-spacing: .12em;
+  padding-bottom: 1rem;
   border-bottom: 1px solid var(--cm-line);
 }
 
@@ -314,16 +314,17 @@ body.is-ready .ring-gem--6          { animation-delay: 2.6s; }
   position: absolute;
   bottom: -1px;
   left: 0;
-  width: 40px;
-  height: 1px;
+  width: 48px;
+  height: 2px;
   background: var(--cm-gold);
 }
 
 .section-sub {
-  margin: .5rem 0 0;
-  font-size: .8rem;
+  margin: .6rem 0 0;
+  font-size: .78rem;
   color: var(--cm-muted);
-  letter-spacing: .06em;
+  letter-spacing: .08em;
+  text-transform: uppercase;
 }
 
 .section-more {
@@ -338,18 +339,20 @@ body.is-ready .ring-gem--6          { animation-delay: 2.6s; }
 .top-ranking {
   margin-top: 2.4rem;
   padding: 2.4rem 1.8rem 2rem;
-  background: rgba(255,255,255,.02);
+  background: var(--cm-panel);
   border: 1px solid var(--cm-line);
-  border-radius: 14px;
+  border-top: 2px solid var(--cm-gold);
+  border-radius: 2px 2px 14px 14px;
 }
 
 .ranking-vol {
-  font-size: .75rem;
+  font-size: .72rem;
   color: var(--cm-muted);
-  letter-spacing: .12em;
-  text-align: center;
-  margin: 0 0 1rem;
+  letter-spacing: .14em;
+  text-align: right;
+  margin: -.4rem 0 1.2rem;
   text-transform: uppercase;
+  font-family: "Cinzel", serif;
 }
 
 .ranking-list {
@@ -363,9 +366,9 @@ body.is-ready .ring-gem--6          { animation-delay: 2.6s; }
   display: flex;
   align-items: center;
   gap: 1rem;
-  padding: .75rem 0 .75rem 1rem;
+  padding: .9rem 0 .9rem 1rem;
   border-bottom: 1px solid var(--cm-line);
-  font-size: .9rem;
+  font-size: .92rem;
   font-feature-settings: 'palt';
   transition: background-color .15s cubic-bezier(.075,.82,.165,1);
 }
@@ -548,9 +551,10 @@ body.is-ready .ring-gem--6          { animation-delay: 2.6s; }
 .top-news {
   margin-top: 2rem;
   padding: 2.4rem 1.8rem 2rem;
-  background: rgba(255,255,255,.02);
+  background: rgba(255,255,255,.015);
   border: 1px solid var(--cm-line);
-  border-radius: 14px;
+  border-top: 2px solid rgba(106,176,240,.6);
+  border-radius: 2px 2px 14px 14px;
 }
 
 .news-list {
@@ -607,9 +611,10 @@ body.is-ready .ring-gem--6          { animation-delay: 2.6s; }
 
 .news-title {
   flex: 1 1 auto;
-  font-size: .9rem;
+  font-size: .92rem;
   color: var(--cm-text);
   line-height: 1.5;
+  font-feature-settings: 'palt';
 }
 
 /* ===================================================
@@ -688,9 +693,10 @@ body.is-ready .ring-gem--6          { animation-delay: 2.6s; }
 .top-message {
   margin-top: 2rem;
   padding: 2.4rem 1.8rem 2rem;
-  background: rgba(255,255,255,.02);
+  background: var(--cm-panel);
   border: 1px solid var(--cm-line);
-  border-radius: 14px;
+  border-left: 3px solid rgba(144,208,144,.45);
+  border-radius: 0 14px 14px 0;
 }
 
 .top-message__inner {
@@ -749,9 +755,10 @@ body.is-ready .ring-gem--6          { animation-delay: 2.6s; }
 .top-twitter {
   margin-top: 2rem;
   padding: 2.4rem 1.8rem 2rem;
-  background: rgba(255,255,255,.02);
+  background: rgba(255,255,255,.015);
   border: 1px solid var(--cm-line);
-  border-radius: 14px;
+  border-top: 2px solid rgba(255,255,255,.12);
+  border-radius: 2px 2px 14px 14px;
 }
 
 .tweet-grid {
