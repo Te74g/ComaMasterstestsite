@@ -105,4 +105,16 @@
     }
   });
 
+  // パネル左ライン — トッププレイヤーのティアを .top-ranking に反映
+  const rankingPanel = document.querySelector(".top-ranking");
+  if (rankingPanel) {
+    const panelTiers = ["rank-tier--apex", "rank-tier--master", "rank-tier--diamond", "rank-tier--gold"];
+    for (let i = 0; i < panelTiers.length; i++) {
+      if (document.querySelector("." + panelTiers[i])) {
+        rankingPanel.classList.add("panel-" + panelTiers[i].replace("rank-tier--", ""));
+        break;
+      }
+    }
+  }
+
 })(window, document);
