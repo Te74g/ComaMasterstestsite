@@ -343,6 +343,15 @@ body.is-ready .ring-gem--6          { animation-delay: 2.6s; }
   border-radius: 14px;
 }
 
+.ranking-vol {
+  font-size: .75rem;
+  color: var(--cm-muted);
+  letter-spacing: .12em;
+  text-align: center;
+  margin: 0 0 1rem;
+  text-transform: uppercase;
+}
+
 .ranking-list {
   list-style: none;
   margin: 0;
@@ -411,14 +420,21 @@ body.is-ready .ring-gem--6          { animation-delay: 2.6s; }
   color: var(--cm-text);
 }
 
-.rank-score {
+.rank-score,
+.rank-record {
   font-size: .82rem;
   color: var(--cm-muted);
   letter-spacing: .02em;
   white-space: nowrap;
 }
 
-.rank-wins {
+.rank-record b {
+  color: var(--cm-text);
+  font-weight: 700;
+}
+
+.rank-wins,
+.rank-pts {
   font-size: .78rem;
   color: var(--cm-muted);
   white-space: nowrap;
@@ -814,7 +830,8 @@ body.is-ready .ring-gem--6          { animation-delay: 2.6s; }
     flex: 1 1 100%;
   }
 
-  .rank-wins {
+  .rank-wins,
+  .rank-pts {
     display: none;
   }
 }
