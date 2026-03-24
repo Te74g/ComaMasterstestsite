@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>マイページ | ComaMasters</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../assets/css/common.css?v=2">
+  <link rel="stylesheet" href="../assets/css/auth.css?v=1">
+</head>
+<body id="mypage" data-page="mypage" data-rt="../">
+
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="site-logo" href="../" aria-label="ComaMasters Home">ComaMasters</a>
+        <nav class="site-nav" id="siteNav" aria-label="Global Navigation">
+          <a class="site-nav__link" href="../" data-nav="top">TOP</a>
+          <a class="site-nav__link" href="../ranking/" data-nav="ranking">RANKING</a>
+          <a class="site-nav__link" href="../event/" data-nav="event">EVENT</a>
+          <a class="site-nav__link" href="../results/" data-nav="results">RESULTS</a>
+          <a class="site-nav__link" href="../links/" data-nav="links">LINKS</a>
+        </nav>
+        <button class="site-menu-button" id="siteMenuButton" type="button" aria-expanded="false" aria-controls="siteNav">MENU</button>
+      </div>
+    </header>
+
+    <main class="mypage-page">
+
+      <!-- プロフィール -->
+      <div class="mypage-hero">
+        <img class="mypage-avatar" id="mypageAvatar"
+             src="../assets/img/default-avatar.webp" alt="アバター">
+        <div class="mypage-info">
+          <p class="mypage-info__name" id="mypageName">—</p>
+          <p class="mypage-info__email" id="mypageEmail">—</p>
+          <span class="mypage-info__tier" id="mypageTier">— tier</span>
+        </div>
+      </div>
+
+      <!-- 戦績ステータス（DBと接続後に動的描画） -->
+      <div class="mypage-stats">
+        <div class="stat-card">
+          <p class="stat-card__label">Elo レーティング</p>
+          <p class="stat-card__value" id="statRating">—</p>
+          <p class="stat-card__sub">シーズン 2026</p>
+        </div>
+        <div class="stat-card">
+          <p class="stat-card__label">通算成績</p>
+          <p class="stat-card__value" id="statRecord">—</p>
+          <p class="stat-card__sub">勝 — 負 — 分</p>
+        </div>
+        <div class="stat-card">
+          <p class="stat-card__label">GF 権利数</p>
+          <p class="stat-card__value" id="statGf">—</p>
+          <p class="stat-card__sub">GRAND FINAL 出場権</p>
+        </div>
+        <div class="stat-card">
+          <p class="stat-card__label">参加大会数</p>
+          <p class="stat-card__value" id="statEvents">—</p>
+          <p class="stat-card__sub">ComaMasters Vol.</p>
+        </div>
+      </div>
+
+      <!-- アクション -->
+      <div class="mypage-actions">
+        <a class="mypage-action-btn" href="../ranking/">
+          ランキングを見る
+        </a>
+        <a class="mypage-action-btn" href="../results/">
+          大会結果を見る
+        </a>
+        <button class="mypage-action-btn mypage-action-btn--danger"
+                id="logoutBtn" type="button">
+          ログアウト
+        </button>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+  <script src="../assets/js/firebase-config.js"></script>
+  <script src="../assets/js/auth.js"></script>
+  <script src="../assets/js/incparts.js?v=2"></script>
+  <script src="../assets/js/jquery.common.js?v=2"></script>
+  <script>
+  (function () {
+    "use strict";
+
+    // 未ログインならログインへ
+    CMA.requireAuth("../");
+
+    const avatarEl  = document.getElementById("mypageAvatar");
+    const nameEl    = document.getElementById("mypageName");
+    const emailEl   = document.getElementById("mypageEmail");
+    const tierEl    = document.getElementById("mypageTier");
+
+    CMA.auth.onAuthStateChanged(function (user) {
+      if (!user) return;
+
+      nameEl.textContent  = user.displayName || "名前未設定";
+      emailEl.textContent = user.email || "";
+      if (user.photoURL) avatarEl.src = user.photoURL;
+
+      // TODO: Firestore / Supabase からレーティング・戦績を取得してここに入れる
+      // 例: db.collection("players").doc(user.uid).get().then(...)
+    });
+
+    document.getElementById("logoutBtn").addEventListener("click", function () {
+      CMA.logout().then(function () {
+        window.location.href = "../";
+      });
+    });
+
+  }());
+  </script>
+</body>
+</html>

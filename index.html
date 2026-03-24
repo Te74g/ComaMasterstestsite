@@ -33,6 +33,11 @@
           <a class="site-nav__link" href="./event/" data-nav="event">EVENT</a>
           <a class="site-nav__link" href="./results/" data-nav="results">RESULTS</a>
           <a class="site-nav__link" href="./links/" data-nav="links">LINKS</a>
+          <a class="site-nav__link header-auth-btn" id="headerLoginBtn" href="./login/" style="display:none">LOGIN</a>
+          <a class="site-nav__link header-auth-btn" id="headerUserBtn" href="./mypage/" style="display:none">
+            <img class="header-auth-btn__avatar" id="headerUserAvatar" src="./assets/img/default-avatar.webp" alt="">
+            MY PAGE
+          </a>
         </nav>
       </div>
       <div class="gem-crest" aria-hidden="true">
@@ -314,6 +319,10 @@
     </footer>
   </div>
 
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+  <script src="./assets/js/firebase-config.js"></script>
+  <script src="./assets/js/auth.js"></script>
   <script src="./assets/js/incparts.js?v=2"></script>
   <script src="./assets/js/jquery.common.js?v=2"></script>
   <script src="./assets/js/jquery.tope3ce.js?v=3"></script>

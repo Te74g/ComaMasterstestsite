@@ -1,0 +1,378 @@
+/* ===================================================
+   Auth Pages — login / register / mypage 共通スタイル
+   =================================================== */
+
+/* ── ページ全体 ─────────────────────────────────────────────── */
+.auth-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 6rem 1.2rem 3rem;
+}
+
+/* ── カード ─────────────────────────────────────────────────── */
+.auth-box {
+  width: 100%;
+  max-width: 420px;
+  background: var(--cm-panel);
+  border: 1px solid var(--cm-line);
+  border-radius: 16px;
+  padding: 2.4rem 2rem 2rem;
+}
+
+.auth-box__logo {
+  display: block;
+  text-align: center;
+  font-family: "Cinzel", serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--cm-gold);
+  letter-spacing: .12em;
+  text-decoration: none;
+  margin-bottom: 1.8rem;
+}
+
+.auth-box__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--cm-text);
+  text-align: center;
+  letter-spacing: .04em;
+  font-feature-settings: 'palt';
+  margin: 0 0 .4rem;
+}
+
+.auth-box__sub {
+  font-size: .8rem;
+  color: var(--cm-muted);
+  text-align: center;
+  margin: 0 0 2rem;
+  font-feature-settings: 'palt';
+}
+
+/* ── フォーム ────────────────────────────────────────────────── */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.auth-field {
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+}
+
+.auth-label {
+  font-size: .75rem;
+  font-weight: 700;
+  color: var(--cm-muted);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.auth-input {
+  width: 100%;
+  padding: .7rem .9rem;
+  background: rgba(255,255,255,.05);
+  border: 1px solid var(--cm-line);
+  border-radius: 8px;
+  color: var(--cm-text);
+  font-size: .95rem;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-feature-settings: 'palt';
+  transition: border-color .2s cubic-bezier(.075,.82,.165,1),
+              background  .2s cubic-bezier(.075,.82,.165,1);
+  box-sizing: border-box;
+}
+
+.auth-input:focus {
+  outline: none;
+  border-color: var(--cm-gold);
+  background: rgba(200,168,74,.06);
+}
+
+.auth-input::placeholder {
+  color: var(--cm-muted);
+  opacity: .5;
+}
+
+/* ── ボタン ──────────────────────────────────────────────────── */
+.auth-submit {
+  width: 100%;
+  padding: .8rem;
+  background: var(--cm-gold);
+  border: none;
+  border-radius: 8px;
+  color: #07090f;
+  font-size: .9rem;
+  font-weight: 700;
+  font-family: "Cinzel", serif;
+  letter-spacing: .1em;
+  cursor: pointer;
+  margin-top: .4rem;
+  transition: opacity .2s cubic-bezier(.075,.82,.165,1),
+              transform .2s cubic-bezier(.075,.82,.165,1);
+}
+
+.auth-submit:hover  { opacity: .85; }
+.auth-submit:active { transform: translateY(1px); }
+.auth-submit:disabled {
+  opacity: .4;
+  cursor: not-allowed;
+}
+
+/* ── ソーシャルログイン ──────────────────────────────────────── */
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  margin: 1.2rem 0;
+  color: var(--cm-muted);
+  font-size: .75rem;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: '';
+  flex: 1 1 auto;
+  height: 1px;
+  background: var(--cm-line);
+}
+
+.auth-social {
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+}
+
+.auth-social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .6rem;
+  width: 100%;
+  padding: .7rem;
+  background: rgba(255,255,255,.05);
+  border: 1px solid var(--cm-line);
+  border-radius: 8px;
+  color: var(--cm-text);
+  font-size: .88rem;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  cursor: pointer;
+  transition: background .2s cubic-bezier(.075,.82,.165,1),
+              border-color .2s cubic-bezier(.075,.82,.165,1);
+}
+
+.auth-social-btn:hover {
+  background: rgba(255,255,255,.09);
+  border-color: rgba(255,255,255,.2);
+}
+
+.auth-social-btn__icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* ── エラー表示 ──────────────────────────────────────────────── */
+.auth-error {
+  display: none;
+  padding: .7rem .9rem;
+  background: rgba(240,100,80,.1);
+  border: 1px solid rgba(240,100,80,.3);
+  border-radius: 8px;
+  color: #f06050;
+  font-size: .82rem;
+  font-feature-settings: 'palt';
+  line-height: 1.5;
+}
+
+.auth-error.is-show { display: block; }
+
+/* ── フッターリンク ──────────────────────────────────────────── */
+.auth-footer {
+  margin-top: 1.6rem;
+  text-align: center;
+  font-size: .82rem;
+  color: var(--cm-muted);
+  font-feature-settings: 'palt';
+}
+
+.auth-footer a {
+  color: var(--cm-gold);
+  text-decoration: none;
+  transition: opacity .2s cubic-bezier(.075,.82,.165,1);
+}
+
+.auth-footer a:hover { opacity: .7; }
+
+/* ── マイページ ──────────────────────────────────────────────── */
+.mypage-page {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 6rem 1.2rem 4rem;
+}
+
+.mypage-hero {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  padding: 1.8rem;
+  background: var(--cm-panel);
+  border: 1px solid var(--cm-line);
+  border-radius: 16px;
+  margin-bottom: 1.4rem;
+}
+
+.mypage-avatar {
+  width: 72px;
+  height: 72px;
+  flex-shrink: 0;
+  border-radius: 100vh;
+  border: 2px solid var(--cm-gold);
+  object-fit: cover;
+  background: var(--cm-line);
+}
+
+.mypage-info__name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--cm-text);
+  font-feature-settings: 'palt';
+  margin: 0 0 .2rem;
+}
+
+.mypage-info__email {
+  font-size: .8rem;
+  color: var(--cm-muted);
+  margin: 0;
+}
+
+.mypage-info__tier {
+  display: inline-block;
+  margin-top: .5rem;
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  padding: .2rem .6rem;
+  border-radius: 100vh;
+  border: 1px solid var(--cm-line);
+  color: var(--cm-muted);
+}
+
+/* ── ステータスカード群 ──────────────────────────────────────── */
+.mypage-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .8rem;
+  margin-bottom: 1.4rem;
+}
+
+.stat-card {
+  flex: 1 1 calc(50% - .4rem);
+  padding: 1.2rem 1.4rem;
+  background: var(--cm-panel);
+  border: 1px solid var(--cm-line);
+  border-radius: 12px;
+}
+
+.stat-card__label {
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--cm-muted);
+  margin: 0 0 .4rem;
+}
+
+.stat-card__value {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--cm-gold);
+  font-family: "Cinzel", serif;
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-card__sub {
+  font-size: .75rem;
+  color: var(--cm-muted);
+  margin: .2rem 0 0;
+}
+
+/* ── アクションボタン群 ──────────────────────────────────────── */
+.mypage-actions {
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+}
+
+.mypage-action-btn {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  width: 100%;
+  padding: .9rem 1.2rem;
+  background: var(--cm-panel);
+  border: 1px solid var(--cm-line);
+  border-radius: 10px;
+  color: var(--cm-text);
+  font-size: .9rem;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-feature-settings: 'palt';
+  cursor: pointer;
+  text-align: left;
+  text-decoration: none;
+  transition: background .2s cubic-bezier(.075,.82,.165,1);
+}
+
+.mypage-action-btn:hover { background: rgba(255,255,255,.05); }
+
+.mypage-action-btn--danger {
+  color: #f06050;
+  border-color: rgba(240,96,80,.25);
+}
+
+.mypage-action-btn--danger:hover { background: rgba(240,96,80,.06); }
+
+/* ── ヘッダー auth ボタン ────────────────────────────────────── */
+.header-auth-btn {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .3rem .8rem;
+  border: 1px solid var(--cm-line);
+  border-radius: 100vh;
+  color: var(--cm-text);
+  font-size: .78rem;
+  font-family: "Cinzel", serif;
+  letter-spacing: .06em;
+  text-decoration: none;
+  cursor: pointer;
+  background: rgba(255,255,255,.04);
+  transition: background .2s cubic-bezier(.075,.82,.165,1),
+              border-color .2s cubic-bezier(.075,.82,.165,1);
+  white-space: nowrap;
+}
+
+.header-auth-btn:hover {
+  background: rgba(255,255,255,.08);
+  border-color: rgba(255,255,255,.2);
+}
+
+.header-auth-btn__avatar {
+  width: 22px;
+  height: 22px;
+  border-radius: 100vh;
+  object-fit: cover;
+}
+
+/* ── レスポンシブ ────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .auth-box { padding: 1.8rem 1.2rem 1.6rem; }
+  .mypage-hero { flex-direction: column; text-align: center; }
+  .stat-card { flex: 1 1 100%; }
+}
