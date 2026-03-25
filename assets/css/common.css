@@ -179,32 +179,34 @@ a {
 }
 
 /* ===================================================
-   Gem Crest
+   Nav Gem — 六属性シンボル（赤紫緑白黄青 = カノニカル順）
    =================================================== */
 
-.gem-crest {
-  padding: 0.1rem 0 0.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.22rem;
-}
-
-.gem {
-  width: 14px;
-  height: 17px;
+.nav-gem {
+  display: inline-block;
+  width: 13px;
+  height: 16px;
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  filter: drop-shadow(0 1px 4px rgba(20,30,80,.18));
+  margin-right: .3em;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+  filter: drop-shadow(0 1px 3px rgba(20,30,80,.15));
+  transition: filter .2s cubic-bezier(.075,.82,.165,1);
 }
 
-.gem--a { background-image: url("../img/common/gem-crest-red.webp"); }
-.gem--b { background-image: url("../img/common/gem-crest-purple.webp"); }
-.gem--c { background-image: url("../img/common/gem-crest-green.webp"); }
-.gem--d { background-image: url("../img/common/gem-crest-white.webp"); }
-.gem--e { background-image: url("../img/common/gem-crest-yellow.webp"); }
-.gem--f { background-image: url("../img/common/gem-crest-blue.webp"); }
+.site-nav__link:hover .nav-gem {
+  filter: drop-shadow(0 1px 5px rgba(20,30,80,.28));
+}
+
+.nav-gem--a { background-image: url("../img/common/gem-crest-red.webp"); }
+.nav-gem--b { background-image: url("../img/common/gem-crest-purple.webp"); }
+.nav-gem--c { background-image: url("../img/common/gem-crest-green.webp"); }
+.nav-gem--d { background-image: url("../img/common/gem-crest-white.webp"); }
+.nav-gem--e { background-image: url("../img/common/gem-crest-yellow.webp"); }
+.nav-gem--f { background-image: url("../img/common/gem-crest-blue.webp"); }
 
 /* ===================================================
    Main / Buttons

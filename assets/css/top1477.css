@@ -10,7 +10,7 @@
   overflow: hidden;
   display: flex;
   align-items: center;
-  background: #f0ebe2;
+  background: var(--cm-bg) url("../img/common/site-bg.webp") center top / cover no-repeat;
 }
 
 /* テキスト側（左）の読みやすさのため白グラデーション */
@@ -188,46 +188,6 @@ body.is-ready .kv-circle__r--c { animation: kvCircle_rotC 14s linear infinite; }
 @keyframes kvCircle_rotB { to { transform: rotate(-360deg); } }
 @keyframes kvCircle_rotC { to { transform: rotate(360deg);  } }
 
-/* Gem Ring — 六角形配置（中心230,230 / 半径180px） */
-.gem-ring {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 460px;
-  height: 460px;
-  pointer-events: none;
-}
-
-.ring-gem {
-  position: absolute;
-  width: 58px;
-  height: 74px;
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  filter: drop-shadow(0 3px 10px rgba(160,120,32,.32));
-}
-
-/* θ=90°  top         */ .ring-gem--1 { left: 201px; top:  13px; background-image: url("../img/top/kv-gem-red.webp");    }
-/* θ=30°  top-right   */ .ring-gem--2 { left: 357px; top: 103px; background-image: url("../img/top/kv-gem-purple.webp"); }
-/* θ=330° bot-right   */ .ring-gem--3 { left: 357px; top: 283px; background-image: url("../img/top/kv-gem-green.webp");  }
-/* θ=270° bottom      */ .ring-gem--4 { left: 201px; top: 373px; background-image: url("../img/top/kv-gem-white.webp");  }
-/* θ=210° bot-left    */ .ring-gem--5 { left:  45px; top: 283px; background-image: url("../img/top/kv-gem-yellow.webp"); }
-/* θ=150° top-left    */ .ring-gem--6 { left:  45px; top: 103px; background-image: url("../img/top/kv-gem-blue.webp");   }
-
-body.is-ready .ring-gem    { animation: ringGem_float 5.4s ease-in-out infinite; }
-/* 対角ペアを 2.7s（半周期）ずらして対称浮遊 */
-body.is-ready .ring-gem--1 { animation-delay:  0s;   }
-body.is-ready .ring-gem--2 { animation-delay:  .9s;  }
-body.is-ready .ring-gem--3 { animation-delay: 1.8s;  }
-body.is-ready .ring-gem--4 { animation-delay: 2.7s;  }
-body.is-ready .ring-gem--5 { animation-delay: 1.8s;  }
-body.is-ready .ring-gem--6 { animation-delay:  .9s;  }
-
-@keyframes ringGem_float {
-  0%, 100% { transform: translateY(0);    }
-  50%       { transform: translateY(-9px); }
-}
 
 /* ===================================================
    共通セクションパターン
@@ -822,21 +782,15 @@ body.is-ready .ring-gem--6 { animation-delay:  .9s;  }
    =================================================== */
 
 @media (max-width: 980px) {
+  .kv-emblem {
+    opacity: .35;
+    right: -60px;
+  }
+
   .top-kv {
     min-height: 560px;
     align-items: flex-end;
     padding-bottom: 2rem;
-  }
-
-  .top-kv__art {
-    width: 100%;
-    opacity: .5;
-  }
-
-  .top-kv__art::before {
-    left: 0;
-    background-size: cover;
-    opacity: .4;
   }
 
   .top-kv::before {
@@ -899,21 +853,13 @@ body.is-ready .ring-gem--6 { animation-delay:  .9s;  }
 }
 
 @media (max-width: 600px) {
+  .kv-emblem {
+    display: none;
+  }
+
   .top-kv {
     min-height: 520px;
   }
-
-  .ring-gem {
-    width: 46px;
-    height: 58px;
-  }
-
-  .ring-gem--1 { left: 6%;   top: 12%; bottom: auto; }
-  .ring-gem--2 { left: 36%;  top: 42%; bottom: auto; }
-  .ring-gem--3 { right: 4%;  top: 18%; bottom: auto; }
-  .ring-gem--4 { right: 10%; top: 55%; bottom: auto; }
-  .ring-gem--5 { left: 20%;  top: 58%; bottom: auto; }
-  .ring-gem--6 { right: 28%; top: 8%;  bottom: auto; }
 
   .top-ranking,
   .top-news,
