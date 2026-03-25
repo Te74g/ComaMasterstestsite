@@ -10,67 +10,59 @@
   overflow: hidden;
   display: flex;
   align-items: center;
-  background:
-    linear-gradient(108deg, #07090f 32%, rgba(8,12,30,.82) 60%, rgba(6,9,20,.35) 100%),
-    url("../img/top/kv-bg.webp") center / cover no-repeat;
+  background: #f0ebe2 url("../img/top/kv-bg.webp") center / cover no-repeat;
 }
 
-/* アートワーク（差し替え: kv-art.webp） */
+/* テキスト側（左）の読みやすさのため白グラデーション */
+.top-kv::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(100deg,
+    rgba(240,235,226,.9) 0%,
+    rgba(240,235,226,.65) 42%,
+    rgba(240,235,226,.15) 68%,
+    transparent 100%);
+  z-index: 1;
+}
+
+/* キャラクターアート */
 .top-kv__art {
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   width: 58%;
-  background: url("../img/top/kv-art.webp") right center / contain no-repeat;
+  background: url("../img/top/hero-character.png") right bottom / contain no-repeat;
   pointer-events: none;
-  z-index: 1;
+  z-index: 2;
 }
 
+/* クリスタル光エフェクト */
 .top-kv__art::before {
   content: "";
   position: absolute;
   top: 0;
-  left: 0;
+  left: -20%;
+  right: 0;
   bottom: 0;
-  width: 62%;
-  background: linear-gradient(90deg, #07090f 5%, transparent 100%);
+  background: url("../img/top/kv-light-overlay.webp") center / cover no-repeat;
+  opacity: .55;
   z-index: 1;
 }
 
-/* ジェム・魔法陣 */
+/* ジェム・デコ */
 .top-kv__deco {
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 2;
+  z-index: 3;
   pointer-events: none;
-}
-
-.top-kv__deco::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-image:
-    radial-gradient(1.5px 1.5px at 62% 18%, hsla(0,0%,100%,.65) 0%, transparent 100%),
-    radial-gradient(1px   1px   at 74% 42%, hsla(210,100%,85%,.55) 0%, transparent 100%),
-    radial-gradient(2px   2px   at 84% 14%, hsla(0,0%,100%,.4)  0%, transparent 100%),
-    radial-gradient(1px   1px   at 90% 62%, hsla(220,80%,90%,.5)  0%, transparent 100%),
-    radial-gradient(1.5px 1.5px at 55% 72%, hsla(0,0%,100%,.35) 0%, transparent 100%),
-    radial-gradient(1px   1px   at 78% 86%, hsla(210,100%,90%,.4) 0%, transparent 100%),
-    radial-gradient(1.5px 1.5px at 68% 50%, hsla(220,80%,92%,.45) 0%, transparent 100%),
-    radial-gradient(1px   1px   at 95% 34%, hsla(0,0%,100%,.5)  0%, transparent 100%);
-  animation: kvParticles_twinkle 3.5s ease-in-out infinite alternate;
-}
-
-@keyframes kvParticles_twinkle {
-  0%   { opacity: .35; }
-  100% { opacity: .9;  }
 }
 
 /* コピー */
@@ -89,7 +81,8 @@
   color: var(--cm-gold);
   opacity: 0;
   transform: translateY(14px);
-  transition: opacity .6s cubic-bezier(.075,.82,.165,1), transform .6s cubic-bezier(.075,.82,.165,1);
+  transition: opacity .6s cubic-bezier(.075,.82,.165,1),
+              transform .6s cubic-bezier(.075,.82,.165,1);
   transition-delay: .1s;
 }
 
@@ -99,11 +92,12 @@
   font-size: clamp(3.5rem, 9vw, 7rem);
   line-height: .9;
   font-weight: 900;
-  color: #fff;
+  color: var(--cm-text);
   letter-spacing: .04em;
   opacity: 0;
   transform: translateY(16px);
-  transition: opacity .7s cubic-bezier(.075,.82,.165,1), transform .7s cubic-bezier(.075,.82,.165,1);
+  transition: opacity .7s cubic-bezier(.075,.82,.165,1),
+              transform .7s cubic-bezier(.075,.82,.165,1);
   transition-delay: .25s;
 }
 
@@ -114,7 +108,8 @@
   gap: .7rem;
   opacity: 0;
   transform: translateY(14px);
-  transition: opacity .6s cubic-bezier(.075,.82,.165,1), transform .6s cubic-bezier(.075,.82,.165,1);
+  transition: opacity .6s cubic-bezier(.075,.82,.165,1),
+              transform .6s cubic-bezier(.075,.82,.165,1);
   transition-delay: .44s;
 }
 
@@ -149,7 +144,7 @@ body.is-ready .top-kv__scroll {
   display: block;
   width: 1px;
   height: 40px;
-  background: linear-gradient(to bottom, rgba(200,168,74,.8), transparent);
+  background: linear-gradient(to bottom, rgba(160,120,32,.7), transparent);
   animation: kvScroll_slide 2s cubic-bezier(.075,.82,.165,1) infinite;
 }
 
@@ -164,7 +159,7 @@ body.is-ready .top-kv__scroll {
   font-family: "Cinzel", serif;
   font-size: .6rem;
   letter-spacing: .2em;
-  color: rgba(200,168,74,.6);
+  color: rgba(160,120,32,.6);
 }
 
 /* Magic Circle */
@@ -175,7 +170,7 @@ body.is-ready .top-kv__scroll {
   width: 460px;
   height: 460px;
   pointer-events: none;
-  opacity: .4;
+  opacity: .25;
 }
 
 .kv-circle__r {
@@ -190,7 +185,7 @@ body.is-ready .top-kv__scroll {
   height: 460px;
   margin-top: -230px;
   margin-left: -230px;
-  border: 1px solid rgba(160,200,255,.28);
+  border: 1px solid rgba(160,120,32,.35);
 }
 
 .kv-circle__r--b {
@@ -198,7 +193,7 @@ body.is-ready .top-kv__scroll {
   height: 320px;
   margin-top: -160px;
   margin-left: -160px;
-  border: 1px dashed rgba(160,200,255,.22);
+  border: 1px dashed rgba(160,120,32,.25);
 }
 
 .kv-circle__r--c {
@@ -206,7 +201,7 @@ body.is-ready .top-kv__scroll {
   height: 180px;
   margin-top: -90px;
   margin-left: -90px;
-  border: 1.5px solid rgba(190,220,255,.32);
+  border: 1.5px solid rgba(160,120,32,.4);
 }
 
 body.is-ready .kv-circle__r--a { animation: kvCircle_rotA 32s linear infinite; }
@@ -234,7 +229,7 @@ body.is-ready .kv-circle__r--c { animation: kvCircle_rotC 14s linear infinite; }
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  filter: drop-shadow(0 0 10px rgba(255,255,255,.3));
+  filter: drop-shadow(0 2px 8px rgba(160,120,32,.28));
 }
 
 .ring-gem--1 { left: 12%;  top: 18%;    background-image: url("../img/top/kv-gem-red.webp");    }
@@ -260,7 +255,6 @@ body.is-ready .ring-gem--6          { animation-delay: 2.6s; }
    共通セクションパターン
    =================================================== */
 
-/* js-fade: 登場アニメーション（transition + クラス切り替え） */
 .js-fade {
   opacity: 0;
   transform: translateY(20px);
@@ -274,7 +268,6 @@ body.is-ready .ring-gem--6          { animation-delay: 2.6s; }
   transform: translateY(0);
 }
 
-/* セクション共通ヘッド */
 .section-head {
   position: relative;
   margin-bottom: 1.8rem;
@@ -291,7 +284,7 @@ body.is-ready .ring-gem--6          { animation-delay: 2.6s; }
   font-weight: 900;
   font-size: clamp(3rem, 8vw, 6rem);
   letter-spacing: .06em;
-  color: rgba(255,255,255,.025);
+  color: rgba(20,30,80,.04);
   line-height: 1;
   pointer-events: none;
   user-select: none;
@@ -303,7 +296,7 @@ body.is-ready .ring-gem--6          { animation-delay: 2.6s; }
   font-family: "Cinzel", serif;
   font-size: clamp(1.1rem, 2.2vw, 1.5rem);
   font-weight: 700;
-  color: #fff;
+  color: var(--cm-text);
   letter-spacing: .12em;
   padding-bottom: 1rem;
   border-bottom: 1px solid var(--cm-line);
@@ -340,7 +333,7 @@ body.is-ready .ring-gem--6          { animation-delay: 2.6s; }
   margin-top: 2.4rem;
   padding: 2.4rem 1.8rem 2rem;
   background: var(--cm-panel);
-  border: 1px solid var(--cm-line);
+  border: 1px solid rgba(255,255,255,.95);
   border-top: 2px solid var(--cm-gold);
   border-radius: 2px 2px 14px 14px;
 }
@@ -378,10 +371,9 @@ body.is-ready .ring-gem--6          { animation-delay: 2.6s; }
 }
 
 .ranking-item:hover {
-  background: rgba(255,255,255,.03);
+  background: rgba(20,30,80,.03);
 }
 
-/* 1〜3位のみ太め */
 .ranking-item--top .rank-name {
   font-weight: 700;
 }
@@ -399,24 +391,25 @@ body.is-ready .ring-gem--6          { animation-delay: 2.6s; }
   color: var(--cm-muted);
   border: 1px solid var(--cm-line);
   border-radius: 100vh;
+  background: rgba(20,30,80,.04);
 }
 
 .rank-num--1 {
-  color: #f0c040;
-  border-color: rgba(240,192,64,.4);
-  background: rgba(240,192,64,.08);
+  color: #8a6010;
+  border-color: rgba(138,96,16,.35);
+  background: rgba(200,168,74,.12);
 }
 
 .rank-num--2 {
-  color: #b0c4de;
-  border-color: rgba(176,196,222,.35);
-  background: rgba(176,196,222,.06);
+  color: #6878a0;
+  border-color: rgba(104,120,160,.3);
+  background: rgba(104,120,160,.08);
 }
 
 .rank-num--3 {
-  color: #cd7f5a;
-  border-color: rgba(205,127,90,.35);
-  background: rgba(205,127,90,.06);
+  color: #906050;
+  border-color: rgba(144,96,80,.3);
+  background: rgba(144,96,80,.07);
 }
 
 .rank-name {
@@ -459,43 +452,42 @@ body.is-ready .ring-gem--6          { animation-delay: 2.6s; }
 
 /* ===================================================
    Ranking Tier — 累積装飾 A→A+B→A+B+C…
-   A: レート色  B: パネル左ライン  C: ダイヤモンドテキスト  D: 行ティント  E: ✦
    =================================================== */
 
 /* A ── レート数字の色 */
-.rank-tier--silver  .rank-rate { color: #a8bcd4; }
-.rank-tier--gold    .rank-rate { color: #c8a84a; }
-.rank-tier--diamond .rank-rate { color: #a8c8f8; }
-.rank-tier--master  .rank-rate { color: #b890e8; }
+.rank-tier--silver  .rank-rate { color: #7a8cb0; }
+.rank-tier--gold    .rank-rate { color: #a07820; }
+.rank-tier--diamond .rank-rate { color: #4888c8; }
+.rank-tier--master  .rank-rate { color: #8050c8; }
 .rank-tier--apex    .rank-rate {
   position: relative;
-  color: #c8a84a;
+  color: #a07820;
   animation: rankApex_colorCycle 7s linear infinite;
 }
 @keyframes rankApex_colorCycle {
-  0%, 100% { color: #c8a84a; }
-  40%       { color: #a8c8f8; }
-  70%       { color: #b890e8; }
+  0%, 100% { color: #a07820; }
+  40%       { color: #4888c8; }
+  70%       { color: #8050c8; }
 }
 
-/* B ── パネル左ライン（Gold 以上は .top-ranking にクラスを付与して管理） */
-.top-ranking.panel-gold    { border-left: 3px solid rgba(200,168,74,.55); }
-.top-ranking.panel-diamond { border-left: 3px solid rgba(168,200,248,.65); }
-.top-ranking.panel-master  { border-left: 3px solid rgba(184,144,232,.72); }
+/* B ── パネル左ライン */
+.top-ranking.panel-gold    { border-left: 3px solid rgba(160,120,32,.5); }
+.top-ranking.panel-diamond { border-left: 3px solid rgba(72,136,200,.55); }
+.top-ranking.panel-master  { border-left: 3px solid rgba(128,80,200,.6); }
 .top-ranking.panel-apex    {
-  border-left: 3px solid #c8a84a;
+  border-left: 3px solid #a07820;
   animation: rankApex_panelLine 7s linear infinite;
 }
 @keyframes rankApex_panelLine {
-  0%, 100% { border-left-color: rgba(200,168,74,.85); }
-  40%       { border-left-color: rgba(168,200,248,.85); }
-  70%       { border-left-color: rgba(184,144,232,.85); }
+  0%, 100% { border-left-color: rgba(160,120,32,.8); }
+  40%       { border-left-color: rgba(72,136,200,.8); }
+  70%       { border-left-color: rgba(128,80,200,.8); }
 }
 
-/* C ── ダイヤモンドテキスト（Diamond 以上） */
+/* C ── ダイヤモンドテキスト */
 .rank-tier--diamond .rank-name {
   background: linear-gradient(110deg,
-    #c8ddf0, #fff, #a4c2e8, #fff, #c8ddf0, #fff, #a4c2e8);
+    #6898d8, #a8c8f0, #4878b8, #a8c8f0, #6898d8, #a8c8f0, #4878b8);
   background-size: 280%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -504,7 +496,7 @@ body.is-ready .ring-gem--6          { animation-delay: 2.6s; }
 }
 .rank-tier--master .rank-name {
   background: linear-gradient(110deg,
-    #d8c8f8, #fff, #b898e8, #fff, #d8c8f8, #fff, #b898e8);
+    #9060d8, #c8a8f0, #7040c0, #c8a8f0, #9060d8, #c8a8f0, #7040c0);
   background-size: 280%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -513,7 +505,7 @@ body.is-ready .ring-gem--6          { animation-delay: 2.6s; }
 }
 .rank-tier--apex .rank-name {
   background: linear-gradient(110deg,
-    #d4b060, #fff, #c8a040, #fffae0, #e0c070, #fff, #d4b060);
+    #a07820, #e0c060, #886010, #ffe8a0, #c09030, #e0c060, #a07820);
   background-size: 280%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -525,17 +517,17 @@ body.is-ready .ring-gem--6          { animation-delay: 2.6s; }
 }
 
 /* D ── 行に極薄ティント（Master 以上） */
-.rank-tier--master { background: rgba(80,40,160,.07); }
-.rank-tier--apex   { background: rgba(80,60,10,.09); }
+.rank-tier--master { background: rgba(120,80,200,.05); }
+.rank-tier--apex   { background: rgba(160,120,32,.06); }
 
-/* E ── ✦ が静かに呼吸（Apex のみ） */
+/* E ── ✦（Apex のみ） */
 .rank-tier--apex .rank-rate::after {
   content: '✦';
   position: absolute;
   top: -4px;
   right: -11px;
   font-size: 7px;
-  color: #c8a84a;
+  color: #a07820;
   opacity: .55;
   animation: rankApex_gem 3.5s ease infinite;
 }
@@ -551,9 +543,9 @@ body.is-ready .ring-gem--6          { animation-delay: 2.6s; }
 .top-news {
   margin-top: 2rem;
   padding: 2.4rem 1.8rem 2rem;
-  background: rgba(255,255,255,.015);
-  border: 1px solid var(--cm-line);
-  border-top: 2px solid rgba(106,176,240,.6);
+  background: var(--cm-panel);
+  border: 1px solid rgba(255,255,255,.95);
+  border-top: 2px solid rgba(72,136,200,.55);
   border-radius: 2px 2px 14px 14px;
 }
 
@@ -578,7 +570,7 @@ body.is-ready .ring-gem--6          { animation-delay: 2.6s; }
 }
 
 .news-item:hover {
-  background: rgba(255,255,255,.03);
+  background: rgba(20,30,80,.03);
 }
 
 .news-date {
@@ -604,10 +596,10 @@ body.is-ready .ring-gem--6          { animation-delay: 2.6s; }
   border: 1px solid;
 }
 
-.news-tag--event   { color: #6ab0f0; border-color: rgba(106,176,240,.4); background: rgba(106,176,240,.08); }
-.news-tag--ranking { color: #f0c040; border-color: rgba(240,192,64,.4);  background: rgba(240,192,64,.08);  }
-.news-tag--info    { color: #90d090; border-color: rgba(144,208,144,.4); background: rgba(144,208,144,.08); }
-.news-tag--result  { color: #c87888; border-color: rgba(200,120,136,.4); background: rgba(200,120,136,.08); }
+.news-tag--event   { color: #2878c8; border-color: rgba(40,120,200,.35); background: rgba(40,120,200,.07); }
+.news-tag--ranking { color: #a07820; border-color: rgba(160,120,32,.35); background: rgba(160,120,32,.07); }
+.news-tag--info    { color: #307830; border-color: rgba(48,120,48,.35);  background: rgba(48,120,48,.07);  }
+.news-tag--result  { color: #b04050; border-color: rgba(176,64,80,.35);  background: rgba(176,64,80,.07);  }
 
 .news-title {
   flex: 1 1 auto;
@@ -626,9 +618,9 @@ body.is-ready .ring-gem--6          { animation-delay: 2.6s; }
   border-radius: 14px;
   overflow: hidden;
   background:
-    linear-gradient(135deg, rgba(46,133,226,.18) 0%, rgba(13,17,44,.9) 60%),
+    linear-gradient(135deg, rgba(240,230,210,.88) 0%, rgba(240,230,210,.7) 60%),
     url("../img/top/kv-bg.webp") center / cover no-repeat;
-  border: 1px solid rgba(46,133,226,.3);
+  border: 1px solid rgba(160,120,32,.25);
 }
 
 .event-cta__inner {
@@ -650,7 +642,7 @@ body.is-ready .ring-gem--6          { animation-delay: 2.6s; }
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  filter: drop-shadow(0 0 6px rgba(200,220,255,.5));
+  filter: drop-shadow(0 1px 4px rgba(20,30,80,.2));
 }
 
 .lore-gem--red    { background-image: url("../img/top/kv-gem-red.webp");    }
@@ -673,7 +665,7 @@ body.is-ready .ring-gem--6          { animation-delay: 2.6s; }
   font-family: "Cinzel", serif;
   font-size: clamp(1.6rem, 4vw, 2.6rem);
   font-weight: 900;
-  color: #fff;
+  color: var(--cm-text);
   letter-spacing: .05em;
   line-height: 1.1;
   font-feature-settings: 'palt';
@@ -694,8 +686,8 @@ body.is-ready .ring-gem--6          { animation-delay: 2.6s; }
   margin-top: 2rem;
   padding: 2.4rem 1.8rem 2rem;
   background: var(--cm-panel);
-  border: 1px solid var(--cm-line);
-  border-left: 3px solid rgba(144,208,144,.45);
+  border: 1px solid rgba(255,255,255,.95);
+  border-left: 3px solid rgba(48,128,48,.4);
   border-radius: 0 14px 14px 0;
 }
 
@@ -731,7 +723,6 @@ body.is-ready .ring-gem--6          { animation-delay: 2.6s; }
   width: 46%;
 }
 
-/* 16:9 embed */
 .video-wrap {
   position: relative;
   width: 100%;
@@ -755,9 +746,9 @@ body.is-ready .ring-gem--6          { animation-delay: 2.6s; }
 .top-twitter {
   margin-top: 2rem;
   padding: 2.4rem 1.8rem 2rem;
-  background: rgba(255,255,255,.015);
-  border: 1px solid var(--cm-line);
-  border-top: 2px solid rgba(255,255,255,.12);
+  background: var(--cm-panel);
+  border: 1px solid rgba(255,255,255,.95);
+  border-top: 2px solid rgba(20,30,80,.1);
   border-radius: 2px 2px 14px 14px;
 }
 
@@ -771,7 +762,7 @@ body.is-ready .ring-gem--6          { animation-delay: 2.6s; }
   flex: 1 1 calc(33.33% - .67rem);
   min-width: 220px;
   padding: 1.2rem;
-  background: rgba(255,255,255,.03);
+  background: rgba(255,255,255,.65);
   border: 1px solid var(--cm-line);
   border-radius: 12px;
   transition:
@@ -780,8 +771,8 @@ body.is-ready .ring-gem--6          { animation-delay: 2.6s; }
 }
 
 .tweet-card:hover {
-  border-color: rgba(140,180,255,.3);
-  background: rgba(255,255,255,.05);
+  border-color: rgba(40,120,200,.3);
+  background: rgba(255,255,255,.85);
 }
 
 .tweet-card__head {
@@ -843,12 +834,20 @@ body.is-ready .ring-gem--6          { animation-delay: 2.6s; }
 
   .top-kv__art {
     width: 100%;
-    opacity: .35;
+    opacity: .5;
   }
 
   .top-kv__art::before {
-    width: 100%;
-    background: linear-gradient(180deg, transparent 0%, #07090f 85%);
+    left: 0;
+    background-size: cover;
+    opacity: .4;
+  }
+
+  .top-kv::before {
+    background: linear-gradient(180deg,
+      rgba(240,235,226,.5) 0%,
+      rgba(240,235,226,.92) 70%,
+      rgba(240,235,226,.98) 100%);
   }
 
   .top-kv__copy {

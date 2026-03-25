@@ -1,11 +1,11 @@
 :root {
-  --cm-bg: #07090f;
-  --cm-panel: #0c1120;
-  --cm-line: rgba(90, 130, 220, 0.14);
-  --cm-text: #dde4ff;
-  --cm-muted: #7a86aa;
-  --cm-gold: #c8a84a;
-  --cm-cyan: #4ab8f0;
+  --cm-bg:    #f2ede6;
+  --cm-panel: rgba(255,255,255,.88);
+  --cm-text:  #1d2b49;
+  --cm-muted: #6878a0;
+  --cm-gold:  #a07820;
+  --cm-line:  rgba(20,30,80,.1);
+  --cm-cyan:  #2a7ab8;
 }
 
 *,
@@ -25,7 +25,7 @@ body {
   color: var(--cm-text);
   font-family: "Zen Kaku Gothic New", sans-serif;
   font-feature-settings: 'palt';
-  background: var(--cm-bg);
+  background: var(--cm-bg) url("../img/common/site-bg.webp") center top / cover fixed;
 }
 
 a {
@@ -44,7 +44,7 @@ a {
   bottom: 0;
   left: 0;
   z-index: 99999;
-  background: #07090f;
+  background: #f2ede6;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -73,8 +73,8 @@ a {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  border: 2px solid rgba(160, 200, 255, .1);
-  border-top-color: rgba(160, 200, 255, .8);
+  border: 2px solid rgba(30,40,80,.1);
+  border-top-color: var(--cm-gold);
   animation: siteLoading_spin .9s linear infinite;
 }
 
@@ -88,7 +88,7 @@ a {
   font-weight: 700;
   letter-spacing: .22em;
   font-size: .85rem;
-  color: rgba(180, 210, 255, .45);
+  color: rgba(30,40,80,.35);
 }
 
 /* ===================================================
@@ -98,10 +98,9 @@ a {
 .site-shell {
   max-width: 1240px;
   margin: 0 auto;
-  background: var(--cm-panel);
-  border-left: 1px solid var(--cm-line);
-  border-right: 1px solid var(--cm-line);
-  box-shadow: 0 0 80px rgba(0, 0, 0, 0.6);
+  background: rgba(255,255,255,.08);
+  border-left: 1px solid rgba(255,255,255,.55);
+  border-right: 1px solid rgba(255,255,255,.55);
 }
 
 /* ===================================================
@@ -113,9 +112,7 @@ a {
   top: 0;
   z-index: 30;
   border-bottom: 1px solid var(--cm-line);
-  background:
-    linear-gradient(180deg, rgba(6, 9, 20, 0.98), rgba(8, 11, 26, 0.96)),
-    url("../img/common/site-bg.webp") center/cover no-repeat;
+  background: rgba(242,237,230,.96);
 }
 
 .site-header__inner {
@@ -151,43 +148,34 @@ a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 40px;
-  padding: .3rem .75rem;
+  min-width: 108px;
+  min-height: 44px;
+  padding: 0.2rem 0.8rem;
   font-family: "Cinzel", serif;
   font-weight: 700;
   font-size: .78rem;
-  letter-spacing: .1em;
-  color: var(--cm-muted);
-  transition: color .2s cubic-bezier(.075,.82,.165,1);
+  letter-spacing: 0.08em;
+  color: #1d2b49;
+  transition: filter .2s cubic-bezier(.075,.82,.165,1);
 }
 
 .site-nav__link::before {
   content: "";
   position: absolute;
-  bottom: 4px;
-  left: .75rem;
-  right: .75rem;
-  height: 1px;
-  background: var(--cm-gold);
-  transform: scaleX(0);
-  transform-origin: center;
-  transition: transform .25s cubic-bezier(.075,.82,.165,1);
-}
-
-.site-nav__link:hover {
-  color: #fff;
-}
-
-.site-nav__link:hover::before {
-  transform: scaleX(1);
-}
-
-.site-nav__link.is-current {
-  color: var(--cm-gold);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: url("../img/common/nav-plate.webp") center/100% 100% no-repeat;
+  z-index: -1;
 }
 
 .site-nav__link.is-current::before {
-  transform: scaleX(1);
+  background-image: url("../img/common/nav-plate-active.webp");
+}
+
+.site-nav__link:hover {
+  filter: brightness(.88);
 }
 
 /* ===================================================
@@ -208,7 +196,7 @@ a {
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.35));
+  filter: drop-shadow(0 1px 4px rgba(20,30,80,.18));
 }
 
 .gem--a { background-image: url("../img/common/gem-crest-red.webp"); }
@@ -230,30 +218,31 @@ main {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.75rem 1.4rem;
+  padding: 0.75rem 1.6rem;
   border-radius: 100vh;
   border: 1px solid transparent;
   font-weight: 700;
-  letter-spacing: 0.06em;
-  transition: transform .2s cubic-bezier(.075,.82,.165,1), filter .2s cubic-bezier(.075,.82,.165,1);
+  letter-spacing: 0.08em;
+  transition: transform .2s cubic-bezier(.075,.82,.165,1),
+              filter  .2s cubic-bezier(.075,.82,.165,1);
 }
 
 .button:hover {
   transform: translateY(-2px);
-  filter: brightness(1.1);
+  filter: brightness(.92);
 }
 
 .button--primary {
-  color: #07090f;
+  color: #fff;
   background: var(--cm-gold);
   border-color: transparent;
   font-family: "Cinzel", serif;
 }
 
 .button--ghost {
-  color: #dde4ff;
-  background: rgba(255, 255, 255, .06);
-  border-color: rgba(140, 170, 240, .35);
+  color: var(--cm-text);
+  background: rgba(255,255,255,.55);
+  border-color: rgba(20,30,80,.28);
 }
 
 /* ===================================================
@@ -262,9 +251,7 @@ main {
 
 .site-footer {
   border-top: 1px solid var(--cm-line);
-  background:
-    linear-gradient(180deg, rgba(6, 9, 20, 0.98), rgba(4, 6, 16, 1)),
-    url("../img/common/footer-bg.webp") center/cover no-repeat;
+  background: rgba(242,237,230,.96) url("../img/common/footer-bg.webp") center / cover no-repeat;
 }
 
 .site-footer__inner {
@@ -300,9 +287,9 @@ main {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(140, 170, 240, .35);
-    color: #dde4ff;
-    background: rgba(255, 255, 255, .06);
+    border: 1px solid rgba(20,30,80,.25);
+    color: var(--cm-text);
+    background: rgba(255,255,255,.55);
     border-radius: 100vh;
     padding: 0.4rem 0.9rem;
     font-family: "Cinzel", serif;
@@ -319,15 +306,16 @@ main {
     left: 0;
     padding: 0.8rem;
     border-bottom: 1px solid var(--cm-line);
-    background: rgba(6, 9, 20, 0.98);
+    background: rgba(242,237,230,.98);
     display: flex;
     flex-direction: column;
-    gap: 0.45rem;
+    gap: 0.3rem;
     transform-origin: top center;
     transform: scaleY(0);
     opacity: 0;
     pointer-events: none;
-    transition: transform .2s cubic-bezier(.075,.82,.165,1), opacity .2s cubic-bezier(.075,.82,.165,1);
+    transition: transform .2s cubic-bezier(.075,.82,.165,1),
+                opacity  .2s cubic-bezier(.075,.82,.165,1);
   }
 
   .site-nav.is-open {
