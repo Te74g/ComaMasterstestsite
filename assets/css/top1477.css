@@ -10,7 +10,7 @@
   overflow: hidden;
   display: flex;
   align-items: center;
-  background: #f0ebe2 url("../img/top/kv-bg.webp") center / cover no-repeat;
+  background: #f0ebe2;
 }
 
 /* テキスト側（左）の読みやすさのため白グラデーション */
@@ -22,45 +22,21 @@
   bottom: 0;
   left: 0;
   background: linear-gradient(100deg,
-    rgba(240,235,226,.9) 0%,
-    rgba(240,235,226,.65) 42%,
-    rgba(240,235,226,.15) 68%,
+    rgba(240,235,226,.95) 0%,
+    rgba(240,235,226,.7)  40%,
+    rgba(240,235,226,.1)  65%,
     transparent 100%);
   z-index: 1;
 }
 
-/* キャラクターアート */
-.top-kv__art {
+/* 六属性クリスタル + 魔法陣の台座 */
+.kv-emblem {
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 58%;
-  background: url("../img/top/hero-character.png") right bottom / contain no-repeat;
-  pointer-events: none;
-  z-index: 2;
-}
-
-/* クリスタル光エフェクト */
-.top-kv__art::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -20%;
-  right: 0;
-  bottom: 0;
-  background: url("../img/top/kv-light-overlay.webp") center / cover no-repeat;
-  opacity: .55;
-  z-index: 1;
-}
-
-/* ジェム・デコ */
-.top-kv__deco {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  right: 8%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 460px;
+  height: 460px;
   z-index: 3;
   pointer-events: none;
 }
@@ -165,12 +141,12 @@ body.is-ready .top-kv__scroll {
 /* Magic Circle */
 .kv-circle {
   position: absolute;
-  bottom: -80px;
-  right: 12%;
+  top: 0;
+  left: 0;
   width: 460px;
   height: 460px;
   pointer-events: none;
-  opacity: .25;
+  opacity: .28;
 }
 
 .kv-circle__r {
@@ -212,14 +188,14 @@ body.is-ready .kv-circle__r--c { animation: kvCircle_rotC 14s linear infinite; }
 @keyframes kvCircle_rotB { to { transform: rotate(-360deg); } }
 @keyframes kvCircle_rotC { to { transform: rotate(360deg);  } }
 
-/* Gem Ring */
+/* Gem Ring — 六角形配置（中心230,230 / 半径180px） */
 .gem-ring {
   position: absolute;
   top: 0;
-  right: 0;
-  bottom: 0;
-  width: 58%;
-  left: auto;
+  left: 0;
+  width: 460px;
+  height: 460px;
+  pointer-events: none;
 }
 
 .ring-gem {
@@ -229,26 +205,28 @@ body.is-ready .kv-circle__r--c { animation: kvCircle_rotC 14s linear infinite; }
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  filter: drop-shadow(0 2px 8px rgba(160,120,32,.28));
+  filter: drop-shadow(0 3px 10px rgba(160,120,32,.32));
 }
 
-.ring-gem--1 { left: 12%;  top: 18%;    background-image: url("../img/top/kv-gem-red.webp");    }
-.ring-gem--2 { left: 38%;  top: 58%;    background-image: url("../img/top/kv-gem-purple.webp"); }
-.ring-gem--3 { right: 8%;  top: 24%;    background-image: url("../img/top/kv-gem-green.webp");  }
-.ring-gem--4 { right: 18%; bottom: 20%; background-image: url("../img/top/kv-gem-white.webp");  }
-.ring-gem--5 { left: 22%;  bottom: 14%; background-image: url("../img/top/kv-gem-yellow.webp"); }
-.ring-gem--6 { right: 34%; top: 16%;    background-image: url("../img/top/kv-gem-blue.webp");   }
+/* θ=90°  top         */ .ring-gem--1 { left: 201px; top:  13px; background-image: url("../img/top/kv-gem-red.webp");    }
+/* θ=30°  top-right   */ .ring-gem--2 { left: 357px; top: 103px; background-image: url("../img/top/kv-gem-purple.webp"); }
+/* θ=330° bot-right   */ .ring-gem--3 { left: 357px; top: 283px; background-image: url("../img/top/kv-gem-green.webp");  }
+/* θ=270° bottom      */ .ring-gem--4 { left: 201px; top: 373px; background-image: url("../img/top/kv-gem-white.webp");  }
+/* θ=210° bot-left    */ .ring-gem--5 { left:  45px; top: 283px; background-image: url("../img/top/kv-gem-yellow.webp"); }
+/* θ=150° top-left    */ .ring-gem--6 { left:  45px; top: 103px; background-image: url("../img/top/kv-gem-blue.webp");   }
 
-body.is-ready .ring-gem             { animation: ringGem_float 5.4s ease-in-out infinite; }
-body.is-ready .ring-gem--2          { animation-delay: .7s;  }
-body.is-ready .ring-gem--3          { animation-delay: 1.5s; }
-body.is-ready .ring-gem--4          { animation-delay: 1s;   }
-body.is-ready .ring-gem--5          { animation-delay: 2s;   }
-body.is-ready .ring-gem--6          { animation-delay: 2.6s; }
+body.is-ready .ring-gem    { animation: ringGem_float 5.4s ease-in-out infinite; }
+/* 対角ペアを 2.7s（半周期）ずらして対称浮遊 */
+body.is-ready .ring-gem--1 { animation-delay:  0s;   }
+body.is-ready .ring-gem--2 { animation-delay:  .9s;  }
+body.is-ready .ring-gem--3 { animation-delay: 1.8s;  }
+body.is-ready .ring-gem--4 { animation-delay: 2.7s;  }
+body.is-ready .ring-gem--5 { animation-delay: 1.8s;  }
+body.is-ready .ring-gem--6 { animation-delay:  .9s;  }
 
 @keyframes ringGem_float {
-  0%, 100% { transform: translateY(0);     }
-  50%       { transform: translateY(-10px); }
+  0%, 100% { transform: translateY(0);    }
+  50%       { transform: translateY(-9px); }
 }
 
 /* ===================================================
@@ -374,6 +352,10 @@ body.is-ready .ring-gem--6          { animation-delay: 2.6s; }
   background: rgba(20,30,80,.03);
 }
 
+.ranking-item--top {
+  background: rgba(160,120,32,.025);
+}
+
 .ranking-item--top .rank-name {
   font-weight: 700;
 }
@@ -394,22 +376,35 @@ body.is-ready .ring-gem--6          { animation-delay: 2.6s; }
   background: rgba(20,30,80,.04);
 }
 
+/* 1位 — ゴールドリング、太字、大きめ */
 .rank-num--1 {
-  color: #8a6010;
-  border-color: rgba(138,96,16,.35);
-  background: rgba(200,168,74,.12);
+  width: 40px;
+  height: 40px;
+  font-size: .95rem;
+  color: #7a5408;
+  border: 2px solid rgba(160,120,32,.55);
+  background: rgba(200,168,74,.18);
+  box-shadow: 0 0 0 3px rgba(200,168,74,.1);
 }
 
+/* 2位 — シルバーリング */
 .rank-num--2 {
-  color: #6878a0;
-  border-color: rgba(104,120,160,.3);
-  background: rgba(104,120,160,.08);
+  width: 36px;
+  height: 36px;
+  font-size: .9rem;
+  color: #5060a0;
+  border: 1.5px solid rgba(104,120,160,.45);
+  background: rgba(104,120,160,.1);
 }
 
+/* 3位 — ブロンズリング */
 .rank-num--3 {
-  color: #906050;
-  border-color: rgba(144,96,80,.3);
-  background: rgba(144,96,80,.07);
+  width: 36px;
+  height: 36px;
+  font-size: .9rem;
+  color: #7a4838;
+  border: 1.5px solid rgba(144,96,80,.4);
+  background: rgba(144,96,80,.09);
 }
 
 .rank-name {
@@ -617,9 +612,10 @@ body.is-ready .ring-gem--6          { animation-delay: 2.6s; }
   margin-top: 2rem;
   border-radius: 14px;
   overflow: hidden;
-  background:
-    linear-gradient(135deg, rgba(240,230,210,.88) 0%, rgba(240,230,210,.7) 60%),
-    url("../img/top/kv-bg.webp") center / cover no-repeat;
+  background: linear-gradient(135deg,
+    rgba(255,252,244,1) 0%,
+    rgba(245,238,220,.9) 50%,
+    rgba(235,225,200,.85) 100%);
   border: 1px solid rgba(160,120,32,.25);
 }
 
