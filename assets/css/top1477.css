@@ -13,7 +13,7 @@
   background: var(--cm-bg) url("../img/common/site-bg.webp") center top / cover no-repeat;
 }
 
-/* テキスト側（左）の読みやすさのため白グラデーション */
+/* テキスト側（左）の読みやすさのため白グラデーション — 大理石を左でも見せる */
 .top-kv::before {
   content: "";
   position: absolute;
@@ -22,9 +22,9 @@
   bottom: 0;
   left: 0;
   background: linear-gradient(100deg,
-    rgba(240,235,226,.95) 0%,
-    rgba(240,235,226,.7)  40%,
-    rgba(240,235,226,.1)  65%,
+    rgba(240,235,226,.82) 0%,
+    rgba(240,235,226,.52) 38%,
+    rgba(240,235,226,.12) 62%,
     transparent 100%);
   z-index: 1;
 }
@@ -222,7 +222,7 @@ body.is-ready .kv-circle__r--c { animation: kvCircle_rotC 14s linear infinite; }
   font-weight: 900;
   font-size: clamp(3rem, 8vw, 6rem);
   letter-spacing: .06em;
-  color: rgba(20,30,80,.04);
+  color: rgba(20,30,80,.07);
   line-height: 1;
   pointer-events: none;
   user-select: none;
@@ -313,7 +313,7 @@ body.is-ready .kv-circle__r--c { animation: kvCircle_rotC 14s linear infinite; }
 }
 
 .ranking-item--top {
-  background: rgba(160,120,32,.025);
+  background: rgba(160,120,32,.07);
 }
 
 .ranking-item--top .rank-name {
@@ -342,9 +342,9 @@ body.is-ready .kv-circle__r--c { animation: kvCircle_rotC 14s linear infinite; }
   height: 40px;
   font-size: .95rem;
   color: #7a5408;
-  border: 2px solid rgba(160,120,32,.55);
-  background: rgba(200,168,74,.18);
-  box-shadow: 0 0 0 3px rgba(200,168,74,.1);
+  border: 2px solid rgba(160,120,32,.7);
+  background: rgba(200,168,74,.22);
+  box-shadow: 0 0 0 3px rgba(200,168,74,.18);
 }
 
 /* 2位 — シルバーリング */
@@ -806,10 +806,8 @@ body.is-ready .kv-circle__r--c { animation: kvCircle_rotC 14s linear infinite; }
   }
 
   .kv-circle {
-    right: 5%;
     width: 300px;
     height: 300px;
-    bottom: -40px;
   }
 
   .kv-circle__r--a {
@@ -831,12 +829,6 @@ body.is-ready .kv-circle__r--c { animation: kvCircle_rotC 14s linear infinite; }
     height: 120px;
     margin-top: -60px;
     margin-left: -60px;
-  }
-
-  .gem-ring {
-    width: 100%;
-    left: 0;
-    bottom: 40%;
   }
 
   .top-message__inner {
