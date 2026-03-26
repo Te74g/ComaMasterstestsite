@@ -1,0 +1,99 @@
+/* ===================================================
+   links.css
+   =================================================== */
+
+.sub-hero {
+  position: relative;
+  padding: 3rem 1.5rem 2rem;
+  overflow: hidden;
+}
+.sub-hero__en {
+  position: absolute;
+  top: 50%;
+  left: -.2rem;
+  transform: translateY(-50%);
+  margin: 0;
+  font-family: "Cinzel", serif;
+  font-weight: 900;
+  font-size: clamp(3rem, 10vw, 7rem);
+  letter-spacing: .06em;
+  color: rgba(20,30,80,.07);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+.sub-hero__title {
+  position: relative;
+  margin: 0 0 .4rem;
+  font-family: "Cinzel", serif;
+  font-weight: 900;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  letter-spacing: .1em;
+  color: var(--cm-text);
+}
+.sub-hero__sub {
+  position: relative;
+  margin: 0;
+  font-size: .82rem;
+  letter-spacing: .08em;
+  color: var(--cm-muted);
+}
+
+/* ── Links Section ── */
+.links-section {
+  background: var(--cm-panel);
+  border-radius: 12px;
+  padding: 1.6rem 1.8rem;
+  margin-bottom: 1.2rem;
+}
+
+.links-section__title {
+  margin: 0 0 1rem;
+  font-family: "Cinzel", serif;
+  font-size: .82rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  color: var(--cm-muted);
+  text-transform: uppercase;
+}
+
+.links-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+}
+
+.links-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: .9rem 1.1rem;
+  border-radius: 8px;
+  border: 1px solid var(--cm-line);
+  background: rgba(255,255,255,.55);
+  transition: background-color .15s cubic-bezier(.075,.82,.165,1),
+              border-color .15s cubic-bezier(.075,.82,.165,1),
+              transform .15s cubic-bezier(.075,.82,.165,1);
+}
+
+.links-card:hover {
+  background: rgba(255,255,255,.88);
+  border-color: rgba(160,120,32,.3);
+  transform: translateY(-1px);
+}
+
+.links-card__name {
+  font-weight: 700;
+  font-size: .9rem;
+  color: var(--cm-text);
+}
+
+.links-card__handle {
+  font-size: .78rem;
+  color: var(--cm-muted);
+  white-space: nowrap;
+}

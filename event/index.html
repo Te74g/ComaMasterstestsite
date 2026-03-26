@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>開催情報 | ComaMasters</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../assets/css/common.css?v=2">
+  <link rel="stylesheet" href="../assets/css/event.css?v=1">
+</head>
+<body id="event" data-page="event" data-rt="../">
+
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="site-logo" href="../" aria-label="ComaMasters Home">ComaMasters</a>
+        <nav class="site-nav" id="siteNav" aria-label="Global Navigation">
+          <a class="site-nav__link" href="../" data-nav="top"><span class="nav-gem nav-gem--a" aria-hidden="true"></span>TOP</a>
+          <a class="site-nav__link" href="../ranking/" data-nav="ranking"><span class="nav-gem nav-gem--b" aria-hidden="true"></span>RANKING</a>
+          <a class="site-nav__link" href="../event/" data-nav="event"><span class="nav-gem nav-gem--c" aria-hidden="true"></span>EVENT</a>
+          <a class="site-nav__link" href="../results/" data-nav="results"><span class="nav-gem nav-gem--d" aria-hidden="true"></span>RESULTS</a>
+          <a class="site-nav__link" href="../links/" data-nav="links"><span class="nav-gem nav-gem--e" aria-hidden="true"></span>LINKS</a>
+          <a class="site-nav__link" href="../mypage/" data-nav="mypage"><span class="nav-gem nav-gem--f" aria-hidden="true"></span>MY PAGE</a>
+        </nav>
+        <button class="site-menu-button" id="siteMenuButton" type="button" aria-expanded="false" aria-controls="siteNav">MENU</button>
+      </div>
+    </header>
+
+    <main class="event-page">
+
+      <div class="sub-hero js-fade">
+        <p class="sub-hero__en" aria-hidden="true">EVENT</p>
+        <h1 class="sub-hero__title">開催情報</h1>
+        <p class="sub-hero__sub">BATTLE SPIRITS — COMMUNITY TOURNAMENT SERIES</p>
+      </div>
+
+      <!-- GRAND FINAL -->
+      <section class="event-section event-section--gf js-fade">
+        <div class="event-section__badge">NEXT — 完全招待制</div>
+        <h2 class="event-section__title">ComaMasters<br>2025 GRAND FINAL</h2>
+        <dl class="event-detail">
+          <div class="event-detail__row">
+            <dt>日時</dt>
+            <dd>2026年4月18日（土）</dd>
+          </div>
+          <div class="event-detail__row">
+            <dt>会場</dt>
+            <dd>三鷹市民協働センター</dd>
+          </div>
+          <div class="event-detail__row">
+            <dt>形式</dt>
+            <dd>完全招待制（各 Vol. 上位入賞者）</dd>
+          </div>
+          <div class="event-detail__row">
+            <dt>配信</dt>
+            <dd>YouTube「JeC ch.」にて生配信予定</dd>
+          </div>
+          <div class="event-detail__row">
+            <dt>サイドイベント</dt>
+            <dd>招待選手以外も当日参加可能</dd>
+          </div>
+        </dl>
+        <p class="event-section__note">
+          詳細は <a href="https://note.com/fansaka/n/n7cf6ef436493" target="_blank" rel="noopener noreferrer">note（主催者記事）</a> をご確認ください。
+        </p>
+      </section>
+
+      <!-- 定例 Vol シリーズ -->
+      <section class="event-section js-fade">
+        <h2 class="event-section__title--sub">定例シリーズについて</h2>
+        <p class="event-body">
+          ComaMasters は全国各地で定期開催しているバトルスピリッツの自主大会シリーズです。
+          2025年度は全14回・延べ900名にご参加いただきました。
+        </p>
+        <dl class="event-detail">
+          <div class="event-detail__row">
+            <dt>形式</dt>
+            <dd>Swiss 6R / Best of 3</dd>
+          </div>
+          <div class="event-detail__row">
+            <dt>参加資格</dt>
+            <dd>バトルスピリッツ プレイヤーであれば誰でも参加可</dd>
+          </div>
+          <div class="event-detail__row">
+            <dt>レーティング</dt>
+            <dd>Elo レーティング（初期値 1500）で成績を記録</dd>
+          </div>
+          <div class="event-detail__row">
+            <dt>GF 出場権</dt>
+            <dd>各 Vol. 上位入賞者に GRAND FINAL への招待権を付与</dd>
+          </div>
+        </dl>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <div class="site-footer__links">
+          <a href="../links/">Link Hub</a>
+          <a href="../results/">Results Archive</a>
+        </div>
+        <small>&copy; <span id="jsCurrentYear">2026</span> ComaMasters</small>
+      </div>
+    </footer>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+  <script src="../assets/js/firebase-config.js"></script>
+  <script src="../assets/js/auth.js"></script>
+  <script src="../assets/js/incparts.js?v=2"></script>
+  <script src="../assets/js/jquery.common.js?v=2"></script>
+</body>
+</html>
