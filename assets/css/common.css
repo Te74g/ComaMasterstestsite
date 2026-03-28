@@ -426,6 +426,49 @@ main {
 }
 
 /* ===================================================
+   Back to Top
+   =================================================== */
+
+.back-to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 24px;
+  z-index: 15;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 100vh;
+  border: 1px solid var(--cm-line);
+  background: rgba(242,237,230,.92);
+  color: var(--cm-gold);
+  font-size: 1.1rem;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity .3s cubic-bezier(.075,.82,.165,1),
+              visibility 0s .3s,
+              transform .3s cubic-bezier(.075,.82,.165,1),
+              border-color .2s cubic-bezier(.075,.82,.165,1);
+}
+
+.back-to-top.is-show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: opacity .3s cubic-bezier(.075,.82,.165,1),
+              visibility 0s 0s,
+              transform .3s cubic-bezier(.075,.82,.165,1),
+              border-color .2s cubic-bezier(.075,.82,.165,1);
+}
+
+.back-to-top:hover {
+  border-color: rgba(160,120,32,.4);
+}
+
+/* ===================================================
    Responsive
    =================================================== */
 

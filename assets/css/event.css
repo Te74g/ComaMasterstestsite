@@ -112,6 +112,18 @@
   color: var(--cm-gold);
   text-decoration: underline;
   text-underline-offset: 3px;
+  transition: opacity .2s cubic-bezier(.075,.82,.165,1);
+}
+
+.event-section__note a:hover {
+  opacity: .7;
+}
+
+/* ── GF Date Emphasis ── */
+.event-section--gf .event-detail__row:first-child dd {
+  font-weight: 700;
+  font-size: .95rem;
+  color: var(--cm-gold);
 }
 
 /* ── Responsive ── */

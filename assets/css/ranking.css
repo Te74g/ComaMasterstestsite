@@ -254,6 +254,36 @@
 
 .tier-badge--silver  { background: rgba(122,140,176,.15); color: #7a8cb0; border: 1px solid rgba(122,140,176,.3); }
 .tier-badge--gold    { background: rgba(160,120,32,.12);  color: #a07820; border: 1px solid rgba(160,120,32,.3); }
-.tier-badge--diamond { background: rgba(72,136,200,.12);  color: #4888c8; border: 1px solid rgba(72,136,200,.3); }
-.tier-badge--master  { background: rgba(128,80,200,.1);   color: #8050c8; border: 1px solid rgba(128,80,200,.25); }
-.tier-badge--apex    { background: rgba(160,120,32,.1);   color: #a07820; border: 1px solid rgba(160,120,32,.25); }
+.tier-badge--diamond {
+  background: rgba(72,136,200,.12);
+  color: #4888c8;
+  border: 1px solid rgba(72,136,200,.3);
+  animation: tierBadge_shimmer 3s linear infinite;
+}
+.tier-badge--master {
+  background: rgba(128,80,200,.1);
+  color: #8050c8;
+  border: 1px solid rgba(128,80,200,.25);
+  animation: tierBadge_shimmer 2.5s linear infinite;
+}
+.tier-badge--apex {
+  background: rgba(160,120,32,.1);
+  color: #a07820;
+  border: 1px solid rgba(160,120,32,.25);
+  animation: tierBadge_shimmer 2s linear infinite;
+}
+
+@keyframes tierBadge_shimmer {
+  0%, 100% { filter: brightness(1); }
+  50%      { filter: brightness(1.15); }
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .rank-section { padding: 1.4rem 1rem; }
+  .rank-note { padding: 1.4rem 1rem; }
+  .ranking-item { gap: .6rem; padding: .7rem 0 .7rem .6rem; }
+  .rank-record { display: none; }
+  .rank-rate { min-width: 40px; font-size: .76rem; }
+  .tier-list { gap: .4rem; }
+}

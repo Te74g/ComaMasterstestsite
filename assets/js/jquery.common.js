@@ -66,10 +66,16 @@
       if (!ticking) {
         ticking = true;
         requestAnimationFrame(function () {
-          if (global.scrollY > 10) {
+          const sy = global.scrollY;
+          if (sy > 10) {
             header.classList.add("is-scrolled");
           } else {
             header.classList.remove("is-scrolled");
+          }
+          if (sy > 400) {
+            btt.classList.add("is-show");
+          } else {
+            btt.classList.remove("is-show");
           }
           ticking = false;
         });
@@ -78,7 +84,21 @@
   }
 
   // ===================================================
-  // Section EN — Parallax Lite（背景英字の微量横スクロール）
+  // Back to Top
+  // ===================================================
+
+  const btt = document.createElement("button");
+  btt.className = "back-to-top";
+  btt.setAttribute("aria-label", "ページ上部へ戻る");
+  btt.innerHTML = "&#8593;";
+  document.body.appendChild(btt);
+
+  btt.addEventListener("click", function () {
+    global.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  // ===================================================
+  // Section EN — Parallax Lite���背景英字の微量横スクロール）
   // ===================================================
 
   const sectionEns = Array.from(document.querySelectorAll(".section-en, .sub-hero__en"));
