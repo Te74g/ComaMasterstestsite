@@ -72,7 +72,7 @@ a {
 .site-loading__ring {
   width: 48px;
   height: 48px;
-  border-radius: 50%;
+  border-radius: 100vh;
   border: 2px solid rgba(30,40,80,.1);
   border-top-color: var(--cm-gold);
   animation: siteLoading_spin .9s linear infinite;
