@@ -39,11 +39,31 @@
   border-bottom: 1px solid var(--cm-line);
   font-size: .92rem;
   font-feature-settings: 'palt';
-  transition: background-color .15s cubic-bezier(.075,.82,.165,1);
+  transition: background-color .15s cubic-bezier(.075,.82,.165,1),
+              padding-left .15s cubic-bezier(.075,.82,.165,1);
+}
+
+.ranking-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  background: var(--cm-gold);
+  transition: width .2s cubic-bezier(.075,.82,.165,1);
 }
 
 .ranking-item:last-child { border-bottom: none; }
-.ranking-item:hover       { background: rgba(20,30,80,.03); }
+
+.ranking-item:hover {
+  background: rgba(20,30,80,.03);
+  padding-left: 1.3rem;
+}
+
+.ranking-item:hover::before {
+  width: 3px;
+}
 .ranking-item--top        { background: rgba(160,120,32,.07); }
 .ranking-item--top .rank-name { font-weight: 700; }
 

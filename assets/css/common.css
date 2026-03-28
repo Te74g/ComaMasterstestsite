@@ -131,6 +131,18 @@ a {
   letter-spacing: 0.1em;
   color: var(--cm-gold);
   white-space: nowrap;
+  background: linear-gradient(110deg,
+    #a07820 0%, #a07820 40%, #e0c060 50%, #a07820 60%, #a07820 100%);
+  background-size: 200%;
+  background-position: 100% 0;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: background-position .6s cubic-bezier(.075,.82,.165,1);
+}
+
+.site-logo:hover {
+  background-position: 0 0;
 }
 
 .site-menu-button {
@@ -194,11 +206,13 @@ a {
   position: relative;
   top: -1px;
   filter: drop-shadow(0 1px 4px rgba(20,30,80,.18));
-  transition: filter .2s cubic-bezier(.075,.82,.165,1);
+  transition: filter .2s cubic-bezier(.075,.82,.165,1),
+              transform .2s cubic-bezier(.075,.82,.165,1);
 }
 
 .site-nav__link:hover .nav-gem {
-  filter: drop-shadow(0 1px 5px rgba(20,30,80,.28));
+  filter: drop-shadow(0 2px 6px rgba(160,120,32,.4));
+  transform: scale(1.1);
 }
 
 .nav-gem--a { background-image: url("../img/common/gem-crest-red.webp"); }
@@ -235,10 +249,27 @@ main {
 }
 
 .button--primary {
+  position: relative;
   color: #fff;
   background: var(--cm-gold);
   border-color: transparent;
   font-family: "Cinzel", serif;
+  overflow: hidden;
+}
+
+.button--primary::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.2), transparent);
+  transition: left .5s cubic-bezier(.075,.82,.165,1);
+}
+
+.button--primary:hover::after {
+  left: 100%;
 }
 
 .button--ghost {
