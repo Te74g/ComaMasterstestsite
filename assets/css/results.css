@@ -59,8 +59,15 @@
   align-items: center;
   gap: .8rem;
   font-size: .9rem;
-  padding: .4rem 0;
+  padding: .4rem 0 .4rem .4rem;
   border-bottom: 1px solid var(--cm-line);
+  transition: background-color .15s cubic-bezier(.075,.82,.165,1),
+              padding-left .15s cubic-bezier(.075,.82,.165,1);
+}
+
+.result-card__top3 li:hover {
+  background: rgba(160,120,32,.04);
+  padding-left: .8rem;
 }
 
 .result-card__top3 li:last-child {

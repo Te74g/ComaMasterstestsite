@@ -56,6 +56,54 @@
   }
 
   // ===================================================
+  // Header Scroll Shadow
+  // ===================================================
+
+  const header = document.querySelector(".site-header");
+  if (header) {
+    let ticking = false;
+    global.addEventListener("scroll", function () {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(function () {
+          if (global.scrollY > 10) {
+            header.classList.add("is-scrolled");
+          } else {
+            header.classList.remove("is-scrolled");
+          }
+          ticking = false;
+        });
+      }
+    });
+  }
+
+  // ===================================================
+  // Section EN — Parallax Lite（背景英字の微量横スクロール）
+  // ===================================================
+
+  const sectionEns = Array.from(document.querySelectorAll(".section-en, .sub-hero__en"));
+  if (sectionEns.length) {
+    let paraTicking = false;
+    global.addEventListener("scroll", function () {
+      if (!paraTicking) {
+        paraTicking = true;
+        requestAnimationFrame(function () {
+          const scrollY = global.scrollY;
+          for (let i = 0; i < sectionEns.length; i++) {
+            const el = sectionEns[i];
+            const rect = el.getBoundingClientRect();
+            if (rect.top < global.innerHeight && rect.bottom > 0) {
+              const offset = (rect.top / global.innerHeight - 0.5) * -12;
+              el.style.transform = "translateY(-50%) translateX(" + offset + "px)";
+            }
+          }
+          paraTicking = false;
+        });
+      }
+    });
+  }
+
+  // ===================================================
   // Loading Screen + Ready（全ページ共通）
   // ===================================================
 
