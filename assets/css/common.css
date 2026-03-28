@@ -110,7 +110,7 @@ a {
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 30;
+  z-index: 20;
   border-bottom: 1px solid var(--cm-line);
   background: rgba(242,237,230,.96);
 }
@@ -245,6 +245,50 @@ main {
   color: var(--cm-text);
   background: rgba(255,255,255,.55);
   border-color: rgba(20,30,80,.28);
+}
+
+/* ===================================================
+   Sub Hero — サブページ共通ヘッダー
+   =================================================== */
+
+.sub-hero {
+  position: relative;
+  padding: 48px 24px 32px;
+  overflow: hidden;
+}
+
+.sub-hero__en {
+  position: absolute;
+  top: 50%;
+  left: -3px;
+  transform: translateY(-50%);
+  margin: 0;
+  font-family: "Cinzel", serif;
+  font-weight: 900;
+  font-size: clamp(48px, 10vw, 112px);
+  letter-spacing: .06em;
+  color: rgba(20,30,80,.07);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.sub-hero__title {
+  position: relative;
+  margin: 0 0 6px;
+  font-family: "Cinzel", serif;
+  font-weight: 900;
+  font-size: clamp(26px, 4vw, 38px);
+  letter-spacing: .1em;
+  color: var(--cm-text);
+}
+
+.sub-hero__sub {
+  position: relative;
+  margin: 0;
+  font-size: 13px;
+  letter-spacing: .08em;
+  color: var(--cm-muted);
 }
 
 /* ===================================================

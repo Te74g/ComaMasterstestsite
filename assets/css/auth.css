@@ -106,7 +106,7 @@
   background: var(--cm-gold);
   border: none;
   border-radius: 8px;
-  color: #07090f;
+  color: #fff;
   font-size: .9rem;
   font-weight: 700;
   font-family: "Cinzel", serif;
@@ -337,38 +337,6 @@
 }
 
 .mypage-action-btn--danger:hover { background: rgba(240,96,80,.06); }
-
-/* ── ヘッダー auth ボタン ────────────────────────────────────── */
-.header-auth-btn {
-  display: flex;
-  align-items: center;
-  gap: .5rem;
-  padding: .3rem .8rem;
-  border: 1px solid var(--cm-line);
-  border-radius: 100vh;
-  color: var(--cm-text);
-  font-size: .78rem;
-  font-family: "Cinzel", serif;
-  letter-spacing: .06em;
-  text-decoration: none;
-  cursor: pointer;
-  background: rgba(255,255,255,.04);
-  transition: background .2s cubic-bezier(.075,.82,.165,1),
-              border-color .2s cubic-bezier(.075,.82,.165,1);
-  white-space: nowrap;
-}
-
-.header-auth-btn:hover {
-  background: rgba(255,255,255,.08);
-  border-color: rgba(255,255,255,.2);
-}
-
-.header-auth-btn__avatar {
-  width: 22px;
-  height: 22px;
-  border-radius: 100vh;
-  object-fit: cover;
-}
 
 /* ── レスポンシブ ────────────────────────────────────────────── */
 @media (max-width: 480px) {

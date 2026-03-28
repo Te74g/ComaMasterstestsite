@@ -1,44 +1,6 @@
 /* ===================================================
    links.css
    =================================================== */
-
-.sub-hero {
-  position: relative;
-  padding: 3rem 1.5rem 2rem;
-  overflow: hidden;
-}
-.sub-hero__en {
-  position: absolute;
-  top: 50%;
-  left: -.2rem;
-  transform: translateY(-50%);
-  margin: 0;
-  font-family: "Cinzel", serif;
-  font-weight: 900;
-  font-size: clamp(3rem, 10vw, 7rem);
-  letter-spacing: .06em;
-  color: rgba(20,30,80,.07);
-  line-height: 1;
-  pointer-events: none;
-  user-select: none;
-}
-.sub-hero__title {
-  position: relative;
-  margin: 0 0 .4rem;
-  font-family: "Cinzel", serif;
-  font-weight: 900;
-  font-size: clamp(1.6rem, 4vw, 2.4rem);
-  letter-spacing: .1em;
-  color: var(--cm-text);
-}
-.sub-hero__sub {
-  position: relative;
-  margin: 0;
-  font-size: .82rem;
-  letter-spacing: .08em;
-  color: var(--cm-muted);
-}
-
 /* ── Links Section ── */
 .links-section {
   background: var(--cm-panel);
@@ -96,4 +58,10 @@
   font-size: .78rem;
   color: var(--cm-muted);
   white-space: nowrap;
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .links-section { padding: 1.4rem 1.2rem; }
+  .links-card { flex-direction: column; align-items: flex-start; gap: .2rem; }
 }

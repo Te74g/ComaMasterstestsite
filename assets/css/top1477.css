@@ -26,7 +26,7 @@
     rgba(240,235,226,.52) 38%,
     rgba(240,235,226,.12) 62%,
     transparent 100%);
-  z-index: 1;
+  z-index: 7;
 }
 
 /* 六属性クリスタル + 魔法陣の台座 */
@@ -37,7 +37,7 @@
   transform: translateY(-50%);
   width: 460px;
   height: 460px;
-  z-index: 3;
+  z-index: 10;
   pointer-events: none;
 }
 
@@ -153,7 +153,7 @@ body.is-ready .top-kv__scroll {
   position: absolute;
   top: 50%;
   left: 50%;
-  border-radius: 50%;
+  border-radius: 100vh;
 }
 
 .kv-circle__r--a {
@@ -372,7 +372,6 @@ body.is-ready .kv-circle__r--c { animation: kvCircle_rotC 14s linear infinite; }
   color: var(--cm-text);
 }
 
-.rank-score,
 .rank-record {
   font-size: .82rem;
   color: var(--cm-muted);
@@ -394,15 +393,6 @@ body.is-ready .kv-circle__r--c { animation: kvCircle_rotC 14s linear infinite; }
   text-align: right;
   font-variant-numeric: tabular-nums;
   letter-spacing: .02em;
-}
-
-.rank-wins,
-.rank-pts {
-  font-size: .78rem;
-  color: var(--cm-muted);
-  white-space: nowrap;
-  min-width: 36px;
-  text-align: right;
 }
 
 /* ===================================================
@@ -484,7 +474,7 @@ body.is-ready .kv-circle__r--c { animation: kvCircle_rotC 14s linear infinite; }
   font-size: 7px;
   color: #a07820;
   opacity: .55;
-  animation: rankApex_gem 3.5s ease infinite;
+  animation: rankApex_gem 3.5s cubic-bezier(.075,.82,.165,1) infinite;
 }
 @keyframes rankApex_gem {
   0%, 100% { opacity: .55; transform: scale(1);   }

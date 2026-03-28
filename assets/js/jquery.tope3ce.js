@@ -29,36 +29,6 @@
   });
 
   // ===================================================
-  // KV Gem Parallax
-  // ===================================================
-
-  const deco = document.querySelector(".top-kv__deco");
-  if (deco) {
-    const gems = Array.from(deco.querySelectorAll(".ring-gem"));
-
-    function onMove(event) {
-      const rect = deco.getBoundingClientRect();
-      const x = (event.clientX - rect.left) / rect.width - 0.5;
-      const y = (event.clientY - rect.top) / rect.height - 0.5;
-
-      gems.forEach(function (gem, index) {
-        const factor = (index + 1) * 0.3;
-        gem.style.transform =
-          "translateX(" + (x * 12 * factor) + "px) translateY(" + (y * 9 * factor) + "px)";
-      });
-    }
-
-    function resetMove() {
-      gems.forEach(function (gem) {
-        gem.style.transform = "";
-      });
-    }
-
-    deco.addEventListener("pointermove", onMove);
-    deco.addEventListener("pointerleave", resetMove);
-  }
-
-  // ===================================================
   // Scroll Entrance — IntersectionObserver (.js-fade)
   // ===================================================
 

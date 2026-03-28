@@ -9,26 +9,9 @@
 
   const googleProvider  = new firebase.auth.GoogleAuthProvider();
 
-  // ── ヘッダーの認証ボタンを状態に応じて切り替え ──────────────
+  // ── ヘッダー認証状態（MY PAGE 一本化のため現在は no-op） ───
   function bindAuthHeader() {
-    const loginBtn  = document.getElementById("headerLoginBtn");
-    const userBtn   = document.getElementById("headerUserBtn");
-    const userAvatar = document.getElementById("headerUserAvatar");
-
-    auth.onAuthStateChanged(function (user) {
-      if (!loginBtn || !userBtn) return;
-
-      if (user) {
-        loginBtn.style.display  = "none";
-        userBtn.style.display   = "flex";
-        if (userAvatar) {
-          userAvatar.src = user.photoURL || "../assets/img/default-avatar.webp";
-        }
-      } else {
-        loginBtn.style.display  = "flex";
-        userBtn.style.display   = "none";
-      }
-    });
+    // nav は MY PAGE リンク常時表示。requireAuth が /mypage/ で認証ガード
   }
 
   // ── メール＆パスワードでログイン ────────────────────────────
