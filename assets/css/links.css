@@ -45,13 +45,33 @@
 .links-card:hover {
   background: rgba(255,255,255,.88);
   border-color: rgba(160,120,32,.3);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+}
+
+.links-card:hover .links-card__name {
+  color: var(--cm-gold);
+}
+
+.links-card::after {
+  content: "\2192";
+  font-size: .9rem;
+  color: var(--cm-muted);
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity .2s cubic-bezier(.075,.82,.165,1),
+              transform .2s cubic-bezier(.075,.82,.165,1);
+}
+
+.links-card:hover::after {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .links-card__name {
   font-weight: 700;
   font-size: .9rem;
   color: var(--cm-text);
+  transition: color .2s cubic-bezier(.075,.82,.165,1);
 }
 
 .links-card__handle {

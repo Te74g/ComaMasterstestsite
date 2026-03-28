@@ -193,19 +193,6 @@ body.is-ready .kv-circle__r--c { animation: kvCircle_rotC 14s linear infinite; }
    共通セクションパターン
    =================================================== */
 
-.js-fade {
-  opacity: 0;
-  transform: translateY(20px);
-  transition:
-    opacity .6s cubic-bezier(.075,.82,.165,1),
-    transform .6s cubic-bezier(.075,.82,.165,1);
-}
-
-.js-fade.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 .section-head {
   position: relative;
   margin-bottom: 1.8rem;
@@ -245,9 +232,15 @@ body.is-ready .kv-circle__r--c { animation: kvCircle_rotC 14s linear infinite; }
   position: absolute;
   bottom: -1px;
   left: 0;
-  width: 48px;
+  width: 0;
   height: 2px;
   background: var(--cm-gold);
+  transition: width .5s cubic-bezier(.075,.82,.165,1) .2s;
+}
+
+.js-fade.is-visible .section-title::after,
+.section-head.is-visible .section-title::after {
+  width: 48px;
 }
 
 .section-sub {
@@ -589,6 +582,18 @@ body.is-ready .kv-circle__r--c { animation: kvCircle_rotC 14s linear infinite; }
   background-size: contain;
   background-repeat: no-repeat;
   filter: drop-shadow(0 1px 4px rgba(20,30,80,.2));
+  animation: loreGem_float 3.2s cubic-bezier(.4,0,.6,1) infinite;
+}
+
+.lore-gem:nth-child(2) { animation-delay: .15s; animation-duration: 3.4s; }
+.lore-gem:nth-child(3) { animation-delay: .3s;  animation-duration: 2.9s; }
+.lore-gem:nth-child(4) { animation-delay: .45s; animation-duration: 3.6s; }
+.lore-gem:nth-child(5) { animation-delay: .6s;  animation-duration: 3.1s; }
+.lore-gem:nth-child(6) { animation-delay: .75s; animation-duration: 3.5s; }
+
+@keyframes loreGem_float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-5px); }
 }
 
 .lore-gem--red    { background-image: url("../img/top/kv-gem-red.webp");    }
@@ -713,12 +718,14 @@ body.is-ready .kv-circle__r--c { animation: kvCircle_rotC 14s linear infinite; }
   border-radius: 12px;
   transition:
     border-color .2s cubic-bezier(.075,.82,.165,1),
-    background-color .2s cubic-bezier(.075,.82,.165,1);
+    background-color .2s cubic-bezier(.075,.82,.165,1),
+    transform .2s cubic-bezier(.075,.82,.165,1);
 }
 
 .tweet-card:hover {
   border-color: rgba(40,120,200,.3);
   background: rgba(255,255,255,.85);
+  transform: translateY(-2px);
 }
 
 .tweet-card__head {

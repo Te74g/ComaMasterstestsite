@@ -12,6 +12,12 @@
   padding: 1.8rem;
   margin-bottom: 1.2rem;
   border-left: 3px solid rgba(20,30,80,.08);
+  transition: transform .25s cubic-bezier(.075,.82,.165,1),
+              border-left-color .25s cubic-bezier(.075,.82,.165,1);
+}
+
+.result-card:hover {
+  transform: translateY(-2px);
 }
 
 .result-card--latest {
@@ -115,6 +121,13 @@
   padding: .65rem 0;
   border-bottom: 1px solid var(--cm-line);
   font-size: .86rem;
+  transition: background-color .15s cubic-bezier(.075,.82,.165,1),
+              padding-left .15s cubic-bezier(.075,.82,.165,1);
+}
+
+.results-archive__item:hover {
+  background: rgba(160,120,32,.04);
+  padding-left: .4rem;
 }
 
 .results-archive__item:last-child {

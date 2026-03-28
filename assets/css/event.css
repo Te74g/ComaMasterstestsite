@@ -8,6 +8,12 @@
   padding: 2rem 1.8rem;
   margin-bottom: 1.2rem;
   border-left: 3px solid rgba(20,30,80,.08);
+  transition: transform .25s cubic-bezier(.075,.82,.165,1),
+              border-left-color .25s cubic-bezier(.075,.82,.165,1);
+}
+
+.event-section:hover {
+  transform: translateY(-1px);
 }
 
 .event-section--gf {

@@ -2,63 +2,6 @@
   "use strict";
 
   // ===================================================
-  // Auth Header Button
-  // ===================================================
-
-  if (global.CMA && global.CMA.bindAuthHeader) {
-    global.CMA.bindAuthHeader();
-  }
-
-  // ===================================================
-  // Loading Screen + Ready
-  // ===================================================
-
-  const loadingEl = document.getElementById("siteLoading");
-
-  global.addEventListener("load", function () {
-    document.body.classList.add("is-ready");
-
-    if (loadingEl) {
-      loadingEl.classList.add("is-out");
-      setTimeout(function () {
-        if (loadingEl.parentNode) {
-          loadingEl.parentNode.removeChild(loadingEl);
-        }
-      }, 800);
-    }
-  });
-
-  // ===================================================
-  // Scroll Entrance — IntersectionObserver (.js-fade)
-  // ===================================================
-
-  const fadeEls = Array.from(document.querySelectorAll(".js-fade"));
-  if (fadeEls.length) {
-    const fadeObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          fadeObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-
-    fadeEls.forEach(function (el, index) {
-      // ランキング・ニュースは連番ディレイ（同じセクション内のみ）
-      const parent = el.parentElement;
-      if (parent) {
-        const siblings = Array.from(parent.querySelectorAll(".js-fade"));
-        const pos = siblings.indexOf(el);
-        if (pos > 0) {
-          el.style.transitionDelay = (pos * 0.06) + "s";
-        }
-      }
-      fadeObserver.observe(el);
-    });
-  }
-
-
-  // ===================================================
   // Ranking Tier — data-rating でティアクラス付与
   // Silver 1650+ / Gold 1700+ / Diamond 1800+ / Master 2000+ / Apex 2500+
   // ===================================================
