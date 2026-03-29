@@ -512,6 +512,8 @@ main {
     transform: scaleY(1);
     opacity: 1;
     pointer-events: auto;
+    transition: transform .2s cubic-bezier(.075,.82,.165,1),
+                opacity  .2s cubic-bezier(.075,.82,.165,1);
   }
 
   .site-nav__link {
