@@ -7,7 +7,9 @@
 }
 
 .result-card {
-  background: var(--cm-panel);
+  background:
+    linear-gradient(180deg, rgba(242,237,230,.92), rgba(242,237,230,.98)),
+    url("../img/results/results-card-bg.webp") center / cover no-repeat;
   border-radius: 12px;
   padding: 1.8rem;
   margin-bottom: 1.2rem;
@@ -101,7 +103,9 @@
 
 /* ── Archive List ── */
 .results-archive {
-  background: var(--cm-panel);
+  background:
+    linear-gradient(180deg, rgba(242,237,230,.94), rgba(242,237,230,.98)),
+    url("../img/results/bracket-bg.webp") center / cover no-repeat;
   border-radius: 12px;
   padding: 1.8rem;
 }

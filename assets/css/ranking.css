@@ -4,7 +4,9 @@
 
 /* ── Rank Section ── */
 .rank-section {
-  background: var(--cm-panel);
+  background:
+    linear-gradient(180deg, rgba(242,237,230,.92), rgba(242,237,230,.98)),
+    url("../img/ranking/table-head-bg.webp") center top / cover no-repeat;
   border-radius: 12px;
   margin: 0 0 1.2rem;
   padding: 1.8rem 1.5rem;
@@ -206,7 +208,9 @@
 
 /* ── Elo Note ── */
 .rank-note {
-  background: var(--cm-panel);
+  background:
+    linear-gradient(180deg, rgba(242,237,230,.94), rgba(242,237,230,.98)),
+    url("../img/ranking/ranking-empty.webp") center / cover no-repeat;
   border-radius: 12px;
   padding: 1.8rem 1.5rem;
   margin-bottom: 1.2rem;

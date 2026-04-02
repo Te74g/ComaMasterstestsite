@@ -10,7 +10,10 @@
   overflow: hidden;
   display: flex;
   align-items: center;
-  background: var(--cm-bg) url("../img/common/site-bg.webp") center top / cover no-repeat;
+  background:
+    linear-gradient(100deg, rgba(242,237,230,.8) 0%, rgba(242,237,230,.45) 42%, rgba(242,237,230,.18) 70%, rgba(242,237,230,.08) 100%),
+    url("../img/top/kv-particles.webp") center / cover no-repeat,
+    url("../img/top/kv-bg.webp") center top / cover no-repeat;
 }
 
 /* テキスト側（左）の読みやすさのため白グラデーション — 大理石を左でも見せる */
@@ -22,9 +25,9 @@
   bottom: 0;
   left: 0;
   background: linear-gradient(100deg,
-    rgba(240,235,226,.82) 0%,
-    rgba(240,235,226,.52) 38%,
-    rgba(240,235,226,.12) 62%,
+    rgba(240,235,226,.76) 0%,
+    rgba(240,235,226,.45) 38%,
+    rgba(240,235,226,.08) 62%,
     transparent 100%);
   z-index: 7;
 }
@@ -39,6 +42,9 @@
   height: 460px;
   z-index: 10;
   pointer-events: none;
+  background: url("../img/top/kv-magic-circle.webp") center / contain no-repeat;
+  mix-blend-mode: screen;
+  opacity: .42;
 }
 
 /* コピー */
@@ -257,13 +263,43 @@ body.is-ready .kv-circle__r--c { animation: kvCircle_rotC 14s linear infinite; }
 }
 
 /* ===================================================
+   Section Divider — 各セクション間の装飾ライン
+   =================================================== */
+
+.section-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .8rem;
+  margin: 2.4rem 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+.section-divider__line {
+  flex: 1 1 auto;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(160,120,32,.2), transparent);
+}
+
+.section-divider__gem {
+  width: 10px;
+  height: 10px;
+  background: rgba(160,120,32,.2);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+/* ===================================================
    Ranking Section
    =================================================== */
 
 .top-ranking {
   margin-top: 2.4rem;
   padding: 2.4rem 1.8rem 2rem;
-  background: var(--cm-panel);
+  background:
+    linear-gradient(180deg, rgba(242,237,230,.92), rgba(242,237,230,.97)),
+    url("../img/ranking/table-head-bg.webp") center top / cover no-repeat;
   border: 1px solid rgba(255,255,255,.95);
   border-top: 2px solid var(--cm-gold);
   border-radius: 2px 2px 14px 14px;
@@ -498,7 +534,9 @@ body.is-ready .kv-circle__r--c { animation: kvCircle_rotC 14s linear infinite; }
 .top-news {
   margin-top: 2rem;
   padding: 2.4rem 1.8rem 2rem;
-  background: var(--cm-panel);
+  background:
+    linear-gradient(180deg, rgba(242,237,230,.93), rgba(242,237,230,.98)),
+    url("../img/event/event-card-bg.webp") center / cover no-repeat;
   border: 1px solid rgba(255,255,255,.95);
   border-top: 2px solid rgba(72,136,200,.55);
   border-radius: 2px 2px 14px 14px;
@@ -590,10 +628,9 @@ body.is-ready .kv-circle__r--c { animation: kvCircle_rotC 14s linear infinite; }
   margin-top: 2rem;
   border-radius: 14px;
   overflow: hidden;
-  background: linear-gradient(135deg,
-    rgba(255,252,244,1) 0%,
-    rgba(245,238,220,.9) 50%,
-    rgba(235,225,200,.85) 100%);
+  background:
+    linear-gradient(135deg, rgba(255,252,244,.9) 0%, rgba(245,238,220,.82) 50%, rgba(235,225,200,.8) 100%),
+    url("../img/event/event-card-bg.webp") center / cover no-repeat;
   border: 1px solid rgba(160,120,32,.25);
 }
 
@@ -617,7 +654,19 @@ body.is-ready .kv-circle__r--c { animation: kvCircle_rotC 14s linear infinite; }
   background-size: contain;
   background-repeat: no-repeat;
   filter: drop-shadow(0 1px 4px rgba(20,30,80,.2));
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity .4s cubic-bezier(.075,.82,.165,1),
+              transform .4s cubic-bezier(.075,.82,.165,1);
 }
+
+.is-visible .lore-gem { opacity: 1; transform: translateY(0); }
+.is-visible .lore-gem:nth-child(1) { transition-delay: .05s; }
+.is-visible .lore-gem:nth-child(2) { transition-delay: .1s; }
+.is-visible .lore-gem:nth-child(3) { transition-delay: .15s; }
+.is-visible .lore-gem:nth-child(4) { transition-delay: .2s; }
+.is-visible .lore-gem:nth-child(5) { transition-delay: .25s; }
+.is-visible .lore-gem:nth-child(6) { transition-delay: .3s; }
 
 .lore-gem--red    { background-image: url("../img/top/kv-gem-red.webp");    }
 .lore-gem--purple { background-image: url("../img/top/kv-gem-purple.webp"); }
@@ -646,10 +695,51 @@ body.is-ready .kv-circle__r--c { animation: kvCircle_rotC 14s linear infinite; }
 }
 
 .event-cta__meta {
-  margin: .7rem 0 1.8rem;
+  margin: .7rem 0 0;
   font-size: .88rem;
   color: var(--cm-muted);
   font-feature-settings: 'palt';
+}
+
+/* ── Countdown ── */
+.event-cta__countdown {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  margin: 1.4rem 0 1.8rem;
+}
+
+.countdown-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .2rem;
+}
+
+.countdown-unit__num {
+  font-family: "Cinzel", serif;
+  font-weight: 900;
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  color: var(--cm-text);
+  letter-spacing: .04em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.countdown-unit__label {
+  font-family: "Cinzel", serif;
+  font-size: .6rem;
+  letter-spacing: .14em;
+  color: var(--cm-muted);
+  text-transform: uppercase;
+}
+
+.countdown-sep {
+  font-family: "Cinzel", serif;
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  color: rgba(160,120,32,.35);
+  align-self: flex-start;
+  padding-top: .2rem;
 }
 
 /* ===================================================
@@ -659,7 +749,9 @@ body.is-ready .kv-circle__r--c { animation: kvCircle_rotC 14s linear infinite; }
 .top-message {
   margin-top: 2rem;
   padding: 2.4rem 1.8rem 2rem;
-  background: var(--cm-panel);
+  background:
+    linear-gradient(180deg, rgba(242,237,230,.93), rgba(242,237,230,.98)),
+    url("../img/results/results-card-bg.webp") center / cover no-repeat;
   border: 1px solid rgba(255,255,255,.95);
   border-left: 3px solid rgba(48,128,48,.4);
   border-radius: 0 14px 14px 0;
@@ -720,7 +812,9 @@ body.is-ready .kv-circle__r--c { animation: kvCircle_rotC 14s linear infinite; }
 .top-twitter {
   margin-top: 2rem;
   padding: 2.4rem 1.8rem 2rem;
-  background: var(--cm-panel);
+  background:
+    linear-gradient(180deg, rgba(242,237,230,.93), rgba(242,237,230,.98)),
+    url("../img/links/link-card-bg.webp") center / cover no-repeat;
   border: 1px solid rgba(255,255,255,.95);
   border-top: 2px solid rgba(20,30,80,.1);
   border-radius: 2px 2px 14px 14px;
@@ -811,6 +905,9 @@ body.is-ready .kv-circle__r--c { animation: kvCircle_rotC 14s linear infinite; }
     min-height: 560px;
     align-items: flex-end;
     padding-bottom: 2rem;
+    background:
+      linear-gradient(180deg, rgba(242,237,230,.46) 0%, rgba(242,237,230,.86) 64%, rgba(242,237,230,.96) 100%),
+      url("../img/top/kv-bg-sp.webp") center top / cover no-repeat;
   }
 
   .top-kv::before {

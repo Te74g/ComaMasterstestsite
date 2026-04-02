@@ -3,7 +3,9 @@
    =================================================== */
 /* ── Links Section ── */
 .links-section {
-  background: var(--cm-panel);
+  background:
+    linear-gradient(180deg, rgba(242,237,230,.93), rgba(242,237,230,.98)),
+    url("../img/links/link-card-bg.webp") center / cover no-repeat;
   border-radius: 12px;
   padding: 1.6rem 1.8rem;
   margin-bottom: 1.2rem;
@@ -36,14 +38,18 @@
   padding: .9rem 1.1rem;
   border-radius: 8px;
   border: 1px solid var(--cm-line);
-  background: rgba(255,255,255,.55);
+  background:
+    linear-gradient(120deg, rgba(255,255,255,.78), rgba(255,255,255,.62)),
+    url("../img/links/link-banner-x.webp") center / cover no-repeat;
   transition: background-color .15s cubic-bezier(.075,.82,.165,1),
               border-color .15s cubic-bezier(.075,.82,.165,1),
               transform .15s cubic-bezier(.075,.82,.165,1);
 }
 
 .links-card:hover {
-  background: rgba(255,255,255,.88);
+  background:
+    linear-gradient(120deg, rgba(255,255,255,.9), rgba(255,255,255,.76)),
+    url("../img/links/link-banner-tonamel.webp") center / cover no-repeat;
   border-color: rgba(160,120,32,.3);
   transform: translateY(-2px);
 }
